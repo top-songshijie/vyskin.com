@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>医学专家推荐</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+    <link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+    <link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/sensitiveSkinSee.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+    <script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+<tc_include file="Public:header" />
+
+<!-- 页面主体 -->
+<div class="warp">
+
+    <!-- 产品 -->
+    <div class="container kefu_warp" style="min-width: 1200px;">
+        <!-- 客服 -->
+        <div class="kefu_fd">
+            <a href="javascript:;">
+                <img src="__TMPL__Public/assets/images/fd.png" width="62px">
+            </a>
+        </div>
+        <div class="col-xs-12 article" style="margin-top:22px;">
+            <div class="col-xs-9 padding" style="margin-top:24px;">
+                {$post_content}
+                <!-- <div class="col-xs-12 padding">
+                    <div class="col-xs-12 padding title">警惕激素依赖性皮炎！</div>
+                    <div class="col-xs-12 padding content ">
+                        激素依赖性皮炎一般指糖皮质激素依赖性皮炎，糖皮质激素（TGCs)，是一种非常廉价的激素，从动物的肾上腺皮质中提取。TGCs本来应该在医生严格处方和指导下，限时限量使用，是用于暂时缓解面部炎症反应的医疗行为，并且面部严禁使用强效糖皮质激素。但是现在，TGCs被非法添加到化妆品里，间断或者是长时间的滥用激素药膏或暗含激素的美容化妆品，就会形成激素依赖性皮炎。表现为外用糖皮质激素后原发皮损消失，但停用后又出现炎性损害，细胞活动能力急速降低，细胞免疫能力、皮脂的分泌也被遏制了。需反复使用糖皮质激素以控制症状并逐渐加重的一种皮炎。近年来，发病呈逐年上升趋势，顽固难治愈。严重的破坏了皮肤的正常生理结构和功能，造成皮肤萎缩、变薄、毛细血管扩张、色素斑，多毛、皮肤老化等不良反应。还对患者的整个身体健康造成了影响，给治疗上也带来了很大的困扰。
+                    </div>
+                </div>
+                <div class="col-xs-12 padding">
+                    <div class="col-xs-12 padding title">激素依赖性皮炎的临床症状</div>
+                    <div class="col-xs-12 padding content ">
+                        皮肤干燥、有紧缩感、烧灼感、刺痛、强烈瘙痒等重度不适;<br> 角质层变薄; 毛细血管弥漫性扩张,局部出现红斑;<br> 皮肤脆弱,皮肤容易发红、发烫、发痒; 毛孔粗大,“汗毛”异常增多、增粗(多毛症);<br> 色素减褪或色素沉着; 毛细血管严重扩张,出现“红血丝”;<br> 表皮萎缩、起皱,干皮症; 紫癫、口周皮炎;<br> 过敏型接触性皮肤炎; 酒糟鼻样皮炎; 丘疹、脓疱;<br> 激素依赖和反跳现象
+                        <br>
+                    </div>
+                </div>
+                <div class="col-xs-12 padding">
+                    <div class="col-xs-12 padding title">得了激素依赖性皮炎怎么办？</div>
+                    <div class="col-xs-12 padding content ">
+                        停用一切糖皮质激素外用制剂。<br> 心理治疗
+                        <br> 对患者进行心理疏导，帮助患者去掉应用糖皮质激素的心理依赖。
+                        <br> 保湿治疗，增加角质层的含水量，恢复表皮屏障功能。
+                        <br> 抗炎抗过敏治疗
+                        <br>
+                        <br>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-xs-3" style="width:261px;height:310px;">
+                <php>
+                    $pc_ljmgj_imgs=sp_getslide("pc_ljmgj_imgs");
+                </php>
+                <foreach name="pc_ljmgj_imgs" item="vo">
+                    <div class="col-xs-12 padding" style="margin-bottom: 10px;">
+                        <a href="{$vo.slide_url}">
+                            <img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" width="100%"	height="100%" alt="" />
+                        </a>
+                    </div>
+                </foreach>
+                <div class="col-xs-12 padding"  style="margin-bottom: 10px; text-align: center;">
+                    <img src="__TMPL__Public/assets/images/footer_ewm.png" width="121px"	height="147px" alt="" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 页面底部 -->
+<tc_include file="Public:footer" />
+
+<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+<script src="__TMPL__Public/assets/js/sensitiveSkinSee.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>妍依净官网首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__TMPL__Public/assets/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/app.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/index.css" />
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<!--头部-->
+		<tc_include file="Public:header" />
+		<!--<header class="mui-bar mui-bar-nav header_top">-->
+			<!--<a class="mui-pull-left" id="aslide_bar">-->
+				<!--<img src="__TMPL__Public/assets/img/header_icon1.png" class="icon_header" />-->
+			<!--</a>-->
+
+			<!--<a class="mui-pull-right">-->
+				<!--<img src="__TMPL__Public/assets/img/header_icon.png" class="icon_header" />-->
+			<!--</a>-->
+			<!--<img src="__TMPL__Public/assets/img/header_logo.png" class="title_img" />-->
+		<!--</header>-->
+		<!--<aside class="menu_warp">-->
+			<!--<div class="menu_container">-->
+				<!--<img src="__TMPL__Public/assets/img/home_icon_colsed.png" class="close_btn" id="asilde_close" />-->
+				<!--<ul class="left_menu_container">-->
+					<!--<li class="mui-text-right">-->
+						<!--<a href="javascript:;">首页</a>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right">-->
+						<!--<a href="javascript:;">关于妍依净</a>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right drowp_down">-->
+						<!--<a href="javascript:;">明星产品</a>-->
+						<!--<ul class="sec_node">-->
+							<!--<li class="mui-text-right">-->
+								<!--<a href="http://baidu.com">了解敏感肌 </a>-->
+							<!--</li>-->
+							<!--<li class="mui-text-right">-->
+								<!--<a href="javascript:;">了解敏感肌 </a>-->
+							<!--</li>-->
+							<!--<li class="mui-text-right">-->
+								<!--<a href="javascript:;">了解敏感肌 </a>-->
+							<!--</li>-->
+							<!--<li class="mui-text-right">-->
+								<!--<a href="javascript:;">了解敏感肌 </a>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right drowp_down">-->
+						<!--<a href="javascript:;">了解敏感肌</a>-->
+						<!--<ul class="sec_node">-->
+							<!--<li class="mui-text-right">-->
+								<!--<a href="http://baidu.com">了解敏感肌</a>-->
+							<!--</li>-->
+							<!--<li class="mui-text-right">-->
+								<!--<a href="javascript:;">医学专家推荐 </a>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right">-->
+						<!--<a href="javascript:;">了解敏感肌 </a>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right">-->
+						<!--<a href="javascript:;">新闻中心</a>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right">-->
+						<!--<a href="javascript:;">招商加盟</a>-->
+					<!--</li>-->
+					<!--<li class="mui-text-right">-->
+						<!--<a href="javascript:;">在线商城</a>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		<!--</aside>-->
+		<php>
+			$phone_index_lunbo = sp_getslide("phone_index_lunbo");
+			$phone_index = sp_getslide("phone_index");
+		</php>
+		<div class="mui-content">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<foreach name="phone_index_lunbo" item="vo">
+					<div class="swiper-slide">
+						<a href="{$vo.slide_url}">
+							<img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" width="100%">
+						</a>
+					</div>
+					</foreach>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 padding header_">
+						<foreach name="phone_index" item="vo">
+						<div class="col-xs-6 padding">
+							<a href="{$vo.slide_url}">
+								<img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" alt="">
+							</a>
+						</div>
+						</foreach>
+					</div>
+					<div class="col-xs-12 newsDynamic">
+						<div class="col-xs-4 title">新闻动态</div>
+						<a href="http://vyskin.com/index.php?m=list&a=index&id=5">
+						<div class="col-xs-2 pull-right padding more">了解更多></div>
+						</a>
+					</div>
+					<php>
+						$lists = sp_sql_posts_paged("cid:5;order:post_date DESC;",4);
+					</php>
+					<div class="col-xs-12 newsList">
+						<div class="col-xs-12 padding_right">
+							<volist name="lists['posts']" id="vo">
+							<div class="col-xs-12 list padding_left padding_right">
+								<div class="col-xs-9 padding">
+									<a href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">{$vo.post_title}</a>
+								</div>
+								<div class="col-xs-3 text-right padding">
+									{$vo.post_date|strtotime|date="Y-m-d",###}
+								</div>
+							</div>
+							</volist>
+						</div>
+					</div>
+					<div class="col-xs-12 padding allIMAGES">
+						<a href="http://www.vyskin.com/index.php?m=page&a=index&id=5">
+						<img src="__TMPL__Public/assets/img/gwsy_pic3.png" alt="" />
+						</a>
+					</div>
+				</div>
+			</div>
+			<!--单个产品模块-->
+			<div class="product_content">
+				<div class="single_product">
+					<div class="single_label">
+						<span class="label_name">明星护理产品</span>
+						<div class="label_name_en">STAR PRODUCTS</div>
+					</div>
+					<div class="col-xs-12 padding goodsList">
+
+						<div class="col-xs-6 list padding text-center">
+							<a href="{:U('page/index',array('id'=>18))}">
+								<img src="__TMPL__Public/assets/img/gwsy_pro1.png" alt="妍依净修护平衡水" style="width: 150px;"/>
+							</a>
+						</div>
+
+						<div class="col-xs-6 list padding text-center">
+							<a href="{:U('page/index',array('id'=>13))}">
+								<img src="__TMPL__Public/assets/img/gwsy_pro2.jpg" alt="妍依净修护换肤精华乳" style="width: 150px;"/>
+							</a>
+						</div>
+
+						<div class="col-xs-6 list padding text-center">
+							<a href="{:U('page/index',array('id'=>19))}">
+								<img src="__TMPL__Public/assets/img/gwsy_pro3.png" alt="妍依净玻尿酸修护精华液" style="width: 150px;"/>
+							</a>
+						</div>
+
+						<div class="col-xs-6 list padding text-center">
+							<a href="{:U('page/index',array('id'=>20))}">
+								<img src="__TMPL__Public/assets/img/gwsy_pro4.png" alt="美卿皮肤修复面膜" style="width: 150px;"/>
+							</a>
+						</div>
+
+					</div>
+					<div class="col-xs-12 allIMAGES padding">
+						<a href="http://www.vyskin.com/index.php?m=page&a=index&id=12">
+						<img src="__TMPL__Public/assets/img/gwsy_pic4.png" alt="" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--<footer class="nav_footer" style="margin-bottom: 0;">-->
+
+			<!--<div class="com_info mui-row">-->
+				<!--<div class="col-xs-12 padding_left padding_right company">-->
+					<!--<div class="col-xs-9 padding">-->
+						<!--<div class="col-xs-1 padding images">-->
+							<!--<img src="__TMPL__Public/assets/img/footer_icon1.png" alt="" />-->
+						<!--</div>-->
+						<!--<div class="col-xs-11 title padding_right">-->
+							<!--客服电话：010-6718 7845-->
+						<!--</div>-->
+						<!--<div class="col-xs-12 padding mes">-->
+							<!--北京慧宇思科技有限公司-->
+						<!--</div>-->
+						<!--<div class="col-xs-12 padding mes">-->
+							<!--北京市东城区夕照寺中街4号星海宏昌大厦A201-1-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="col-xs-3 ewm text-center padding">-->
+						<!--<img src="__TMPL__Public/assets/img/footer_ewm.png" alt="" />-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="col-xs-12 padding">-->
+				<!--<div class="col-xs-3" style="height:0.07rem;background:rgba(255,85,27,1);"></div>-->
+				<!--<div class="col-xs-9" style="height:0.07rem;background:rgba(89,87,87,1);"></div>-->
+			<!--</div>-->
+			<!--<div class="footer_copy">-->
+				<!--<div class="col-xs-12 list">-->
+					<!--<div class="col-xs-6 padding" style="border-right:1px solid rgba(89,87,87,1);">-->
+						<!--国家食品药品监督管理局 -->
+					<!--</div>-->
+					<!--<div class="col-xs-6 padding">-->
+						<!--北京市食品药品监督管理局-->
+					<!--</div>-->
+					<!--<div class="col-xs-6 padding"  style="border-right:1px solid rgba(89,87,87,1);">-->
+						<!--国家知识产权局-->
+					<!--</div>-->
+					<!--<div class="col-xs-6 padding">-->
+						<!--中国检疫检验科学院-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div style="margin-top:1.8rem;clear: both;">Copyright&copy;2017-2019 BEIJING HUIYUSI TECHNOLOGY CO.,LTD</div>-->
+				<!--<div>[京ICP备17024136号-1]</div>-->
+			<!--</div>-->
+		<!--</footer>-->
+		<!--<nav class="footer_ac ">
+			<div class="mui-pull-left nav_left">
+				<img src="__TMPL__Public/assets/img/footer_icon2.png" /> 在线客服 | 会员中心
+			</div>
+			<div class="nav_right">购物袋<span class="mui-icon mui-icon-arrowright"></span>
+				<div class="yuan">3</div>
+			</div>
+		</nav>-->
+		<tc_include file="Public:footer" />
+		<script src="__TMPL__Public/assets/js/mui.min.js"></script>
+		<script src="__TMPL__Public/assets/js/jquery-2.1.0.js"></script>
+		<script src="__TMPL__Public/assets/js/swiper.jquery.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			mui.init()   
+			//轮播图初始化
+			var swiper = new Swiper('.swiper-container', {
+				loop: true,
+				pagination: '.swiper-pagination',
+				paginationClickable: true
+			});
+			
+		</script>
+	</body>
+
+</html>

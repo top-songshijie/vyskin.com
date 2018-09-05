@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>文章详情</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/sensitiveSkinSee.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/pressCenter.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header" />
+
+		<!-- 页面主体 -->
+		<div class="warp">
+
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-12 article" style="margin-top:14px;">
+					<div class="col-xs-9 padding" style="margin-top:26px;">
+						<div class="col-xs-12 padding">
+							<div class="col-xs-12 title padding">
+								{$post_title}
+							</div>
+							<div class="col-xs-12 time padding">
+								<php>
+									echo date("Y-m-d",strtotime($post_date));
+									$zhou = date("w",strtotime($post_date));
+									$arr_zhou = array('1'=>'星期一','2'=>'星期二','3'=>'星期三','4'=>'星期四','5'=>'星期五','6'=>'星期六','0'=>'星期日');
+									echo $arr_zhou[$zhou];
+								</php>
+							</div>
+							<div class="col-xs-12 hr_"></div>
+							<div class="col-xs-12 content padding">
+								{$post_content}
+							</div>
+						</div>
+					</div>
+					<php>
+						$pc_xwzx_imgs = sp_getslide("pc_xwzx_imgs");
+					</php>
+					<div class="col-xs-3" style="width:261px;height:310px;">
+						<div class="col-xs-12 padding" style="margin-bottom: 10px;">
+							<a href="{$pc_xwzx_imgs[0]['slide_url']}">
+								<img src="{:sp_get_asset_upload_path($pc_xwzx_imgs[0]['slide_pic'])}" width="100%" height="100%" alt="" >
+							</a>
+							<!--<img src="__TMPL__Public/assets/images/7164027.png" width="100%" height="100%" alt="" />-->
+						</div>
+						<div class="col-xs-12 padding" style="margin-bottom: 10px;">
+							<a href="{$pc_xwzx_imgs[1]['slide_url']}">
+								<img src="{:sp_get_asset_upload_path($pc_xwzx_imgs[1]['slide_pic'])}" width="100%" height="100%" alt="" >
+							</a>
+							<!--<img src="__TMPL__Public/assets/images/7164027.png" width="100%" height="100%" alt="" />-->
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer" />
+
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/sensitiveSkinSee.js"></script>
+		<script src="__TMPL__Public/assets/js/pressCenter.js"></script>
+	</body>
+
+</html>

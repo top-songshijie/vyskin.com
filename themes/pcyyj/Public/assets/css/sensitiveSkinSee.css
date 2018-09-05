@@ -1,0 +1,14 @@
+.article .title{
+	color:rgba(255,60,0,1);
+	font-size: 28px;
+	margin-bottom: 25px;
+}
+.article{
+	margin-bottom: 150px;
+}
+.article .content{
+	font-size: 15px;
+	color:rgba(62,58,57,1);
+	line-height: 30px;
+	margin-bottom: 52px;
+}

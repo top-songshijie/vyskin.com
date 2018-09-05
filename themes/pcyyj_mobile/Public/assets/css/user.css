@@ -1,0 +1,144 @@
+body{
+	background:rgba(246,246,246,1);
+}
+.user_1{
+	background-size: 100% 100%;
+	height:2.2rem;
+}
+.user_1 .user_2{
+	margin-top:0.35rem;
+}
+.user_1 .user_2 img{
+	border:3px solid #fff;
+	border-radius: 50%;
+	display:block;
+	width: 1.05rem;
+	height: 1.05rem;
+	margin:0 auto;
+}
+.user_1 .user_3{
+	margin-top:0.21rem;
+}
+.user_4{
+	font-size:0.16rem;
+	padding:0.05rem;
+	color:#fff;
+	margin-bottom: 0.4rem;
+	margin-top: 0.1rem;
+	border-radius: 0.19rem;
+}
+.user_5{
+	background:#fff;
+	padding:0.1rem;
+	font-size: 0.16rem;
+	text-align: center;
+	padding-left:0;
+	padding-right: 0;
+	border-bottom: 1px solid rgba(204,204,204,1);
+}
+.user_5 img{
+	width: 0.23rem;
+	height: 0.24rem;
+}
+.user_5 div{
+	padding:0.05rem;
+	font-size: 0.14rem;
+	color:rgba(51,51,51,1);
+	border-right: 1px solid rgba(204,204,204,1);
+}
+.user_5 span{
+	color:rgba(17,201,114,1);
+	margin-left:5px;
+}
+.user_5 .img{
+	position:relative;
+}
+.user_5 .img div{
+	width: 0.15rem;
+	height: 0.15rem;
+	text-align: center;
+	padding:0;
+	border-radius: 100%;
+	background:red;
+	font-size: 0.12rem;
+	color:#fff;
+	position:absolute;
+	top:-0.03rem;
+	left:0.43rem;
+}
+.user_6{
+	margin-top:5px;
+	background:#fff;
+	padding:0.1rem;
+	padding-left:0.17rem;
+	border-bottom: 1px solid rgba(204,204,204,1);
+}
+.user_6 img{
+	width: 0.13rem;
+	height: 0.16rem;
+}
+.user_6_1{
+	font-size: 0.16rem;
+	margin-top:3px;
+}
+.user_6_2{
+	font-size:0.16rem;
+	color:rgba(153,153,153,1);
+	margin-top:0.05rem;
+}
+.user_7{
+	font-size: 0.2rem;
+}
+.user_8{
+	padding:0.1rem;
+	background:#fff;
+	font-size: 0.16rem;
+	border-bottom: 1px solid rgba(204,204,204,1);
+    padding-left: 0.17rem;
+}
+.user_8 div{
+	margin-top:3px;
+}
+.user_8 span{
+	margin-top:0.05rem;
+	color:rgba(153,153,153,1);
+}
+.user_8 img{
+	margin-top:0.04rem;
+}
+.user_8:last-child{
+	margin-top:0.095rem;
+	border-top:1px solid rgba(204,204,204,1);
+}
+.user_8:first-child{
+	border-top:1px solid rgba(204,204,204,1);
+}
+.LogOutMoudel{
+	position:fixed;
+	top:0;
+	background:rgba(0,0,0,0.5);
+	height:100%;
+	display:none;
+}
+.LogOutMoudel .moudel{
+	background:#fff;
+	height: 1.54rem;
+	border-radius: 0.1rem;
+	margin-top:2.2rem;
+}
+.LogOutMoudel .moudel .title{
+	height:1.1rem;
+	line-height: 1.1rem;
+	text-align: center;
+	font-size: 0.18rem;
+	border-bottom: 1px solid rgba(204,204,204,1);
+}
+.LogOutMoudel .moudel .exit{
+	line-height: 0.44rem;
+	color:rgba(102,102,102,1);
+}
+.LogOutMoudel .moudel .cancel{
+	line-height: 0.44rem;
+	color:rgba(102,102,102,1);
+	border-left:1px solid rgba(204,204,204,1);
+}

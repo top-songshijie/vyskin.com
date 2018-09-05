@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>订单提交</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+    <link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+    <link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/shoppCar.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/orderConfirmation.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/sucPay.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+    <script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+<tc_include file="Public:header2">
+
+<!-- 页面主体 -->
+<div class="warp">
+
+    <!-- 产品 -->
+    <div class="container kefu_warp" style="min-width: 1200px;">
+        <!-- 客服 -->
+        <div class="kefu_fd">
+            <a href="javascript:;">
+                <img src="__TMPL__Public/assets/images/fd.png" width="62px">
+            </a>
+        </div>
+        <div class="col-xs-12 myShoppingD">
+            <div class="col-xs-3 col-xs-offset-4 header_">
+                <div class="col-xs-1 img padding"></div>
+                <div class="col-xs-10 title"></div>
+            </div>
+            <div class="col-xs-3 schedule padding pull-right">
+                <img src="__TMPL__Public/assets/images/ddtjcg_lct.png" alt="" />
+            </div>
+        </div>
+        <div class="col-xs-12 model">
+            <div class="col-xs-1 col-xs-offset-1 padding image">
+                <img src="__TMPL__Public/assets/images/ddtjcg_icon1.png" alt="" />
+            </div>
+            <div class="col-xs-3 okMes">订单提交成功！</div>
+            <div class="col-xs-4 col-xs-offset-3 padding text-right payRoll">应付总额：<span style="font-size:24px;color:rgba(252,63,29,1);"><span style="font-size: 16px;">¥</span><span id="total_price">{$info.total_price}</span></span>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1 hr"></div>
+            <div class="col-xs-12 mes">
+                <div class="col-xs-12">订单号：<span id="order_sn">{$info.order_sn}</span></div>
+                <div class="col-xs-12">收货信息：{$info.sh_name} {$info.sh_address}</div>
+                <div class="col-xs-12">商品名称：<span id="title">妍依净订单</span></div>
+                <div class="col-xs-12">下单时间：{$info.addtime|date='Y-m-d',###}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 modelTwo">
+            <div class="col-xs-12 payStyle">选择支付方式 <span id="jiance" style="margin-left: 500px; background-color: #FF3C00; color: #fff;border-radius:5px;cursor:pointer;">我已支付</span></div>
+            <div class="col-xs-10 col-xs-offset-1 hr"></div>
+            <!--<div class="col-xs-12 ">
+                <div class="col-xs-2">
+                    <img src="__TMPL__Public/assets/images/addimg.png" alt="" />
+                </div>
+                <div class="col-xs-2">
+                    <img src="__TMPL__Public/assets/images/addimg.png" alt="" />
+                </div>
+            </div>-->
+            <div class="col-xs-12 payFS">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#A" data-toggle="tab">
+                            <img src="__TMPL__Public/assets/images/zfb.png" alt="" />
+                            <div></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#B" data-toggle="tab" id="wxzf">
+                            <img src="__TMPL__Public/assets/images/wechat.png" alt="" />
+                            <div></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-xs-12 padding " style="background: #fff;margin-bottom: 41px;">
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade " id="B">
+                    <div class="col-xs-12 padding ewm">
+                        <img alt='微信扫码支付' src='http://paysdk.weixin.qq.com/example/qrcode.php?data=".urlencode($url2)."' style='width:150px;height:150px;'/>
+                    </div>
+                    <div class="col-xs-12 padding hint">
+                        <img src="__TMPL__Public/assets/images/qsm.png" alt="" />
+                    </div>
+                </div>
+                <div class="tab-pane fade in active" id="A">
+                    <div class="col-xs-12 padding padding goPay">
+                        <div class="col-xs-10 money">
+                            <!--<div class="col-xs-2 pull-right padding">应付总额：<span style="color:rgba(252,63,29,1);font-size: 24px;">¥150</span></div>-->
+                        </div>
+                        <a href="{:U('Alipay/pageAlipay',array('total_price'=>$info['total_price'],'order_sn'=>$info['order_sn'],'title'=>'妍依净订单'))}"><div class="col-xs-2 btnPay">
+                            去付款
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 页面底部 -->
+
+            <tc_include file="Public:footer2">
+
+    <script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+    <script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+    <script src="__TMPL__Public/assets/js/shoppCar.js"></script>
+    <script src="__TMPL__Public/assets/js/goodsDetails.js"></script>
+    <script src="__TMPL__Public/assets/js/orderConfirmation.js"></script>
+    <script src="__TMPL__Public/assets/js/sucPay.js"></script>
+    <script>
+        $('#wxzf').click(function () {
+            var total_price = $('#total_price').text();
+            var order_sn = $('#order_sn').text();
+            var title = $('#title').text();
+            $.ajax({
+                type:"POST",
+                url:"{:U('Wxpay/wxpay')}",
+                data:{
+                    "total_price":total_price,
+                    "order_sn":order_sn,
+                    "title":title
+                },
+                success:function (data) {
+                    if(data.code==200){
+//                        console.log(data.data);
+                        $("#myTabContent .ewm").html(data.data)
+                    }
+                    else {
+                        alert(data.msg);
+                    }
+                },
+                error:function () {
+                    alert("网络错误");
+                }
+            })
+        })
+
+
+        $('#jiance').click(function(){
+            var order_sn = $('#order_sn').text();
+
+            $.ajax({
+                type:"POST",
+                url:"{:U('Order/jiance')}",
+                data:{
+                    "order_sn":order_sn,
+                },
+                success:function (data) {
+                    if(data.code==200){
+                        window.location.href="{:U('Portal/Mine/index')}";
+                    }
+                    else {
+                        alert(data.msg);
+                    }
+                },
+                error:function () {
+                    alert("网络错误");
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+
+</html>

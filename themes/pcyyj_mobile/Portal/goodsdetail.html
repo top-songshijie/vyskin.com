@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>产品详情页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="__TMPL__Public/assets/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/app.css" />
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<!--头部-->
+		<tc_include file="Public:header" />
+
+		<div class="mui-content">
+			<div class="product_container">
+				<!--<div class="image_warp">-->
+					<!--<img src="__TMPL__Public/assets/img/pro_1.jpg" width="100%" />-->
+				<!--</div>-->
+				<!--<div class="product_detail_ac">-->
+					<!--<div class="single_ac mui-row">-->
+						<!--<span class="mui-pull-left">规格：</span>-->
+						<!--<select class="pro_detail_select">-->
+							<!--<option>净含量：1ml*6 零售价：150元</option>-->
+						<!--</select>-->
+					<!--</div>-->
+					<!--<div class="single_ac mui-row">-->
+						<!--<span class="mui-pull-left">数量：</span>-->
+						<!--<select class="pro_detail_select">-->
+							<!--<option>1</option>-->
+							<!--<option>2</option>-->
+							<!--<option>3</option>-->
+						<!--</select>-->
+					<!--</div>-->
+
+					<!--<div class="buy_ac">-->
+						<!--<div class="single_buy_ac">-->
+							<!--<img src="__TMPL__Public/assets/img/pro_btn_add.png" width="100%" />-->
+						<!--</div>-->
+						<!--<div class="single_buy_ac">-->
+							<!--<img src="__TMPL__Public/assets/img/pro_btn_buy.png" width="100%" />-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="single_label">-->
+					<!--<span class="label_name">产品详情</span>-->
+				<!--</div>-->
+				<div class="product_detail_warp">
+					<php>
+						$smeta = json_decode($smeta,ture);
+						$picurl = sp_get_image_preview_url($smeta['thumb']);
+						if(!empty($smeta['thumb'])){
+							echo "<img src='$picurl' width='100%' />";
+						}else{
+							echo "还没有上传产品详细信息哦！！！";
+						}
+					</php>
+
+					<!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_02.png' width="100%" />-->
+					<!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_03.png' width="100%" />-->
+					<!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_04.png' width="100%" />-->
+					<!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_05.png' width="100%" />-->
+				</div>
+			</div>
+			<!--单个产品模块-->
+		</div>
+		<script src="__TMPL__Public/assets/js/mui.min.js"></script>
+		<script src="__TMPL__Public/assets/js/jquery-2.1.0.js"></script>
+		<script src="__TMPL__Public/assets/js/swiper.jquery.min.js"></script>
+		
+	</body>
+
+</html>

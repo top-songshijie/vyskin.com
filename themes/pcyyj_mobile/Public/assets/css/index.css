@@ -1,0 +1,90 @@
+.header_{
+	margin-top:0.14rem;
+}
+.header_ img{
+	width: 3.72rem;
+	height: 2.61rem;
+}
+.newsDynamic{
+	margin-top:0.53rem;
+}
+.newsDynamic .title{
+	font-size: 0.39rem;
+	color:rgba(89,87,87,1);
+	font-weight: 500;
+}
+.newsDynamic .more{
+	font-size: 0.26px;
+	color:rgba(255,85,27,1);
+	margin-top:0.18rem;
+}
+.newsList{
+	color:rgba(89,87,87,1);
+	font-size: 0.23rem;
+}
+.newsList .list{
+	
+	padding-top:0.3rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid rgba(196,196,196,1);
+}
+.allIMAGES{
+	margin-top:0.4rem;
+}
+.allIMAGES img{
+	width: 100%;
+}
+.single_product .goodsList{
+	margin-top:0.91rem;
+}
+.single_product .goodsList .list{
+	margin-bottom: 1rem;
+}
+.single_product .goodsList .list img{
+	width: 2.26rem;
+}
+.company {
+	margin-top:0.74rem;
+	color:rgba(89,87,87,1);
+}
+.company .images img{
+	width: 0.32rem;
+	height: 0.32rem;
+}
+.company .title{
+	font-size: 0.29rem;
+	margin-top:0.02rem;
+}
+.company .mes{
+	font-size: 0.19rem;
+	margin-top:0.27rem;
+}
+.company .ewm img{
+	width: 1.36rem;
+	height: 1.36rem;
+}
+.footer_copy .list div{
+	margin-top:0.42rem;
+}
+
+
+.nav_right{
+	/*position:relative;
+	width:50%;
+	left:100%;
+	margin-left:-20px;*/
+}
+.nav_right .yuan{
+	width: 0.36rem;
+	height: 0.36rem;
+	position:absolute;
+	top:0;
+	left:100%;
+	margin-left:-37px;
+	margin-top:-0.18rem;
+	background:rgba(89,87,87,1);
+	color:#fff;
+	border-radius: 100%;
+	font-size: 0.12rem;
+	line-height: 0.36rem;
+}

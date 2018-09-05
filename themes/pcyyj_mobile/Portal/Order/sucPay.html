@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>订单详情</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalSetting.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/lineItem.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<a href="javascript:history.go(-1)">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+						</a>
+					</div>
+					<div class="col-xs-8 font text-center">
+						订单详情
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 state">
+					<div class="col-xs-2 stateImg">
+						<img src="__TMPL__Public/assets/img/stateImg.png" alt="" />
+					</div>
+					<div class="col-xs-10 padding stateFont">未支付</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 userMes">
+					<div class="col-xs-1 padding_right dwImg">
+						<img src="__TMPL__Public/assets/img/dwImg.png" alt="" />
+					</div>
+					<div class="col-xs-11 mes">
+						<div class="col-xs-12 padding namePhone">
+							<div class="col-xs-3 padding">{$info.sh_name}</div>
+							<div class="col-xs-9 padding">{$info.sh_mobile}</div>
+						</div>
+						<div class="col-xs-12 padding address">
+							{$info.sh_address}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 shoppMes">
+					<div class="col-xs-12 mesHeader padding_right">
+						<div class="col-xs-6 padding title">妍依净官网</div>
+						<div class="col-xs-6 service padding_right">
+							<div class="col-xs-5 pull-right padding text-right serviceFont">联系客服</div>
+							<div class="col-xs-1 pull-right padding serviceImg">
+								<img src="__TMPL__Public/assets/img/earImg.png" alt="" />
+							</div>
+						</div>
+					</div>
+					<volist name="info['detail']" id="vo">
+					<div class="col-xs-12 shoppMesBody">
+						<div class="col-xs-2 padding shoppBodyImg">
+							<img src="__TMPL__Public/assets/img/pro_xhs_pic1.png" alt="" />
+						</div>
+						<div class="col-xs-10 padding shoppFontMes">
+							<div class="col-xs-12 shoppTitle padding_right">
+								<div class="col-xs-8 padding">{$vo.title}</div>
+								<div class="col-xs-4 padding text-right">¥{$vo.one_price}</div>
+							</div>
+							<div class="col-xs-12 numSpecification padding_right">
+								<div class="col-xs-8 padding">
+									数量：{$vo.number} 规格：<php>echo $vo['attribute'][1]</php>
+								</div>
+<!--
+								<div class="col-xs-4 pull-right padding submit">
+									<button class="btn pull-right btn-default ">加入购物车</button>
+								</div>
+-->
+							</div>
+						</div>
+					</div>
+					</volist>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 serialTime">
+					<div class="col-xs-12 serial padding">订单编号：{$info.order_sn}</div>{$info.addtime|date='Y-m-d',###}</div>
+					<div class="col-xs-12 modeOfPayment padding_left padding_right">支付方式：支付宝支付</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 text-right actualPayment">
+					实付款：¥{$info.total_price}
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					
+					<!--<button class="btn pull-right btn-default btn-lg cancellationOfOrder">取消订单</button>-->
+					<button class="btn pull-right btn-default btn-lg pay">
+					<a href="{:U('Alipay/wapAlipay',array('total_price'=>$info['total_price'],'order_sn'=>$info['order_sn'],'title'=>'妍依净'))}" style="color: #fff">
+						去支付
+					</a>
+					</button>
+				</div>
+			</div>
+		</div>
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+		<script src="__TMPL__Public/assets/js/personalSetting.js"></script>
+		<script src="__TMPL__Public/assets/js/lineItem.js"></script>
+	</body>
+
+</html>

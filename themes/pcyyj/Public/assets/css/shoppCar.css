@@ -1,0 +1,204 @@
+.warp {
+	background:rgba(248,248,248,1);
+}
+.myShoppingD .img{
+	width: 21px;
+	height: 24px;
+	margin-top:5px;
+}
+.myShoppingD .img img{
+	width: 21px;
+	height: 24px;
+}
+.myShoppingD .title{
+	font-size: 24px;
+}
+.myShoppingD .header_{
+	margin-top:56px;
+}
+.myShoppingD .schedule{
+	margin-top:46px;
+}
+.model{
+	background:#Fff;
+	margin-top:48px;
+	padding:34px 43px 29px 40px;
+	margin-bottom: 32px;
+}
+
+
+
+.radio-inline {                 /*设置label的样式*/
+    width: 100%;
+    padding: 10px 0px;
+    padding-left: 40px;
+    display: block;
+    line-height: 20px;
+    position: relative;
+    font-weight: normal;
+    color:rgba(102,102,102,1);
+}
+.model .option {      /*把优化后的按钮图片设置为该div的背景图片，把该div定位到原生样式的上方，遮盖住原生样式。*/
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    background-size: cover;
+    background: url(../images/cart_icon_normal.png) no-repeat;
+    background-size: cover;
+}
+.optionActive{
+	background: url(../images/cart_icon_select.png) no-repeat  !important;;
+}
+.model input[type="checkbox"] {  /*为了保险起见，把原生样式隐藏掉*/
+    display: inline-block ;
+    margin-right: 15px ;
+    opacity: 1 ;
+}
+input[type="checkbox"]:checked+div {  /*当radiuo被选中时，把input下边的div标签的背景图片替换掉*/
+    background: url(../images/cart_icon_normal.png) no-repeat;
+    background-size: cover;
+}
+.model .hr_{
+	margin-top:22px;
+	margin-bottom: 27px;
+	clear: both;
+	width: 1090px;
+	border-bottom: 1px dashed rgba(0,0,0,.6);
+}
+
+.model .modelList{
+	margin-bottom: 38px;
+}
+.model .modelList .options .option{
+	margin-top:81px;
+	margin-bottom: 61px;
+}
+.model .modelList .listFrame{
+	border:1px solid rgba(204,204,204,1);
+}
+.model .modelList .listFrame .head{
+	background:rgba(248,248,248,1);
+	padding-top:12px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(204,204,204,1);
+}
+.model .modelList .listFrame .head .shopp{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .head .price{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .head .num{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .head .subtotal{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .body .shopp{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+	padding:26px 0;
+	padding-left:37px;
+	border-right:1px solid rgba(204,204,204,1);
+}
+.model .modelList .listFrame .body .shopp .img img{
+	width: 70px;
+	height: 69px;
+}
+.model .modelList .listFrame .body .price{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .body .num{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .body .subtotal{
+	font-size: 14px;
+	color:rgba(102,102,102,1);
+}
+.model .modelList .listFrame .body .shopp .parameter .title{
+	font-size: 18px;
+	color:rgba(51,51,51,1);
+	margin-top:10px;
+}
+.model .modelList .listFrame .body .shopp .parameter .specification{
+	color:rgba(153,153,153,1);
+	font-size: 16px;
+	margin-top:10px;
+}
+.model .modelList .listFrame .body .price{
+	padding:29px 0;
+	border-right:1px solid rgba(204,204,204,1);
+}
+.model .modelList .listFrame .body .price .title{
+	font-size: 16px;
+	color:rgba(51,51,51,1);
+	margin-top:7px;
+}
+.model .modelList .listFrame .body .price .num{
+	font-size: 16px;
+	color:rgba(153,153,153,1) !important;
+	margin:13px 0 0 0;
+	color:#000;
+}
+.model .modelList .listFrame .body .num_{
+	padding:35px 0;
+	border-right:1px solid rgba(204,204,204,1);
+}
+.model .modelList .listFrame .body .num_ .pagination{
+	margin:13px 0 0 0;
+}
+.model .modelList .listFrame .body .num_ .pagination input{
+	border:0;
+	width: 20px;
+	text-align: center;
+}
+.model .modelList .listFrame .body .subtotal{
+	padding:48px 0;
+}
+.model .modelList .listFrame .body .subtotal .allPrice{
+	font-size: 18px;
+	color:rgba(51,51,51,1);
+	
+}
+.model .modelList .listFrame .body .num_ .pagination li span{
+	color:rgba(51,51,51,1);
+}
+.aggregate .aggregatePrice{
+	font-size: 18px;
+	color:rgba(102,102,102,1);
+	height:100%;
+	line-height: 40px;
+}
+.aggregate .aggregatePrice .num{
+	font-size: 18px;
+	color:rgba(252,63,29,1);
+	padding:0 10px;
+}
+.aggregate .aggregatePrice .totalPrice{
+	color:rgba(252,63,29,1);
+	font-size: 18px;
+	padding:0 10px;
+}
+.aggregate .settleAccounts{
+	width: 120px;
+	height: 40px;
+	background:rgba(255,60,0,1);
+	color:#fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+}
+
+
+
+.subtraction,.addition{
+	cursor: pointer;
+}

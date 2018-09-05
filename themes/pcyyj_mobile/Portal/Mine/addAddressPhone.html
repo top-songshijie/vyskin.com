@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>收货地址</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalSetting.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/createNewAddress.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/weui.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<a href="javascript:history.go(-1)">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+						</a>
+					</div>
+					<div class="col-xs-8 font text-center">
+						新增地址
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 padding_right head">
+					<div class="col-xs-12 padding list">
+						<div class="col-xs-3 padding">联系人</div>
+						<div class="col-xs-8 col-xs-offset-1 padding list_input">
+							<input type="text" placeholder="请输入联系人姓名" id="sh_name"/>
+						</div>
+					</div>
+					<div class="col-xs-12 padding list">
+						<div class="col-xs-3 padding">联系手机</div>
+						<div class="col-xs-8 col-xs-offset-1 padding list_input">
+							<input type="text" placeholder="请输入联系手机号码" id="sh_mobile"/>
+						</div>
+					</div>
+					<div class="col-xs-12 padding list listCit">
+						<div class="col-xs-3 padding">所在区域</div>
+						<div class="col-xs-1 pull-right padding list_input">
+							<span class="glyphicon glyphicon-menu-right" style="color:rgba(153,153,153,1);"></span>
+						</div>
+						<div class="col-xs-8 pull-right listLocation text-right"></div>
+						
+					</div>
+					<div class="col-xs-12 padding list">
+						<div class="col-xs-3 padding">详细地址</div>
+						<div class="col-xs-8 col-xs-offset-1 padding list_input">
+							<input type="text" placeholder="请输入详细地址" id="xiangxi"/>
+						</div>
+					</div>
+					<div class="col-xs-12 padding list listYN">
+						<div class="col-xs-1 padding images">
+							<img src="__TMPL__Public/assets/img/defaultYes.png" />
+						</div>
+						<div class="col-xs-10 padding">设为默认地址</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<input type="hidden" name="xinjianbiaoji" id="xinjianbiaoji" value="{$xinjianbiaoji}">
+					<input type="hidden" name="id" id="cart_id" value="{$id}">
+					<div class="col-xs-12 saveAddress" >
+						保存地址
+					</div>
+				</div> 
+			</div>
+		</div>
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+		<script src="__TMPL__Public/assets/js/personalSetting.js"></script>
+		<script src="__TMPL__Public/assets/js/createNewAddress.js"></script>
+		<script src="__TMPL__Public/assets/js/weui.js"></script>
+		<script src="__TMPL__Public/assets/js/citypicker.js"></script>
+	</body>
+
+</html>

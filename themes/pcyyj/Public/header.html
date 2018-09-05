@@ -1,0 +1,44 @@
+		<header class="container_fuild top_header">
+			<div class="container nav_header">
+				<img src="__TMPL__Public/assets/images/header_icon.png" height="57px" width="57px" alt="header_icon" class="pull_left media_img">
+				<img src="__TMPL__Public/assets/images/header_logo.png" width="102px" class="">
+				<img src="__TMPL__Public/assets/images/header_ewm.png" width="47px" class="pull_right media_img">
+				<span class="pull_right hot_line">客服热线：010-6718 7845</span>
+			</div>
+			<div class="container_fuild nav_menu">
+				<div class="container">
+			<?php
+				$effected_id="main-menu";
+			  	$filetpl="<a href='\$href' target='\$target'>\$label</a>";
+	            $foldertpl="<a href='\$href' target='\$target'>\$label</a>";
+	            $ul_class="sec_menu" ;
+	            $li_class="first" ;
+	            $style="menu_lists";
+	            $showlevel=2;
+	            $dropdown='second';
+	            echo sp_get_menu2("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+            ?>
+				</div>
+			</div>
+		</header>
+
+
+
+		<script>
+            //        获取当前得url是否与当前得页面匹配
+            $(document).ready(function(){
+                $(".nav_menu .container ul li a").each(function(){
+                    $this = $(this);
+                    if($this[0].href==String(window.location)){
+                        if($this.parent().is('.first')){
+                            $this.css("color","#fff")
+                            $this.parent().css({"background":"rgba(255,72,21,1)"});
+						}else{
+                            $this.parent().parent().parent().css({"background":"rgba(255,72,21,1)"})
+                            $this.parent().parent().siblings().css("color","#fff")
+						}
+
+                    }
+                });
+            });
+		</script>

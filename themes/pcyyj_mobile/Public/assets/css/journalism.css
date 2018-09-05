@@ -1,0 +1,18 @@
+.single_product .day{
+	font-size: 0.28rem;
+	color:rgba(62,58,57,1);
+	margin-top:0.9rem;
+}
+.single_product .title{
+	font-size: 0.33rem;
+	color:rgba(255,60,0,1);
+}
+.single_product .hr{
+	border-bottom: 1px solid #000;
+	margin-top:0.21rem;
+	margin-bottom: 0.22rem;
+}
+.single_product .content{
+	font-size: 0.22rem;
+	line-height: 0.4rem;
+}

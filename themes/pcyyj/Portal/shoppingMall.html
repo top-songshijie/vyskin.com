@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>妍依净商城</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header2" />
+		<!-- 页面主体 -->
+		<div class="warp">
+		<php>
+	        $pc_index_lunbo=sp_getslide("pc_index_lunbo");
+	        $pc_miaoshu=sp_getslide("pc_miaoshu");
+	        $pc_star1=sp_getslide("pc_star1");
+	        $pc_star2=sp_getslide("pc_star2");
+	    </php>
+			<!-- 轮播 -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 padding">
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+								<foreach name="pc_index_lunbo" item="vo">
+								<div class="swiper-slide">
+									<a href="{$vo.slide_url}">
+				                        <img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" width="100%">
+				                    </a>
+								</div>
+								</foreach>
+							</div>
+							<!-- 如果需要分页器 -->
+							<div class="swiper-pagination"></div>
+
+							<!-- 如果需要导航按钮 -->
+							<!--<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>-->
+
+							<!-- 如果需要滚动条 -->
+							<!--<div class="swiper-scrollbar"></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 产品 -->
+			<div class="container kefu_warp">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+
+				<div class="single_label"><span class="label_name">明星产品</span></div>
+
+				<div class="single_container" style="background:rgba(242,242,242,1);">
+					<a href="{$pc_miaoshu[0]['slide_url']}" class="pull_left">
+                		<img src="{:sp_get_asset_upload_path($pc_miaoshu[0]['slide_pic'])}" width="420px">
+            		</a>
+					<div class="img_box pull_left">
+		                <foreach name="pc_star1" item="vo">
+						<div class="img_item pull_left" style="padding:45px 16px 39px 56px;    z-index: 100;">
+							<a href="{$vo.slide_url}">
+								<img src="{:sp_get_asset_upload_path($vo['slide_pic'])}">
+							</a>
+						</div>
+						</foreach>
+					</div>
+				</div>
+				<foreach name="pc_star2" item="vo">
+				<div class="single_container single_big_right" >
+					<a href="{$vo.slide_url}">
+								<img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" style="margin-top:7px;" width="100%">
+					</a>
+				</div>
+				</foreach>
+			</div>
+		</div>
+
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2" />
+
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container', {
+				direction: 'horizontal',
+				loop: true,
+				autoplay : 3000,
+autoplayDisableOnInteraction : false,
+
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+
+				// 如果需要前进后退按钮
+				//								nextButton: '.swiper-button-next',
+				//								prevButton: '.swiper-button-prev',
+
+				// 如果需要滚动条
+				//				scrollbar: '.swiper-scrollbar',
+			})
+		</script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container1', {
+				direction: 'horizontal',
+				slidesPerView: 4,
+				spaceBetween: 20,
+				autoplay : 3000,
+autoplayDisableOnInteraction : false,
+
+				// 如果需要分页器
+				//				pagination: '.swiper-pagination',
+
+				// 如果需要前进后退按钮
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+
+				// 如果需要滚动条
+				//				scrollbar: '.swiper-scrollbar',
+			})
+		</script>
+	</body>
+
+</html>

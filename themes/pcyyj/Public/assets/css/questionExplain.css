@@ -1,0 +1,24 @@
+.article .titleF .title_{
+	color:rgba(62,58,57,1);
+	font-size: 29px;
+	font-weight: 600;
+}
+.article .titleF .english{
+	font-size: 17px;
+	color:rgba(62,58,57,1);
+	margin-top:20px;
+	color:rgba(62,58,57,1);
+}
+.article .titleF .list .title{
+	font-size: 20px;
+	background:rgba(234,234,234,1);
+	margin-top:27px;
+	text-indent: 0.5em;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+.article .titleF .list .content{
+	font-size: 16px;
+	color:rgba(62,58,57,1);
+	margin-bottom: 0;
+}

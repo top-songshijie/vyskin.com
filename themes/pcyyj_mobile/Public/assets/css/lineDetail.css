@@ -1,0 +1,148 @@
+.header {
+	margin-bottom: 0;
+}
+
+.classType ul li {
+	width: 20%;
+}
+
+.classType ul {
+	background: #fff;
+}
+
+.classType ul li a {
+	font-size: 0.28rem;
+	color: rgba(102, 102, 102, 1);
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+	border: 0 !important;
+}
+
+.classType ul .active {
+	border-bottom: 0.05rem solid rgba(255, 61, 0, 1);
+}
+
+.classType ul .active a {
+	color: rgba(255, 61, 0, 1);
+}
+
+.classType #myTabContent .orderStatus {
+	background: #fff;
+	padding: 0.27rem 0.32rem;
+	color: rgba(102, 102, 102, 1);
+}
+
+.shoppMes {
+	margin-top: 0;
+}
+
+.shoppMes .shoppMesBody {
+	padding: 0.41rem 0;
+}
+
+.shoppMes .shoppMesBody .shoppBodyImg {
+	width: 1.16rem;
+	height: 1.16rem;
+	background: #fff;
+	border: 1px solid rgba(228, 228, 228, 1);
+}
+
+.shoppMes .shoppMesBody .shoppBodyImg img {
+	width: 1.16rem;
+	height: 1.16rem;
+}
+
+.shoppMes .shoppMesBody .shoppFontMes {
+	width: 82.333333%;
+}
+
+@media screen and (max-width: 320px) {
+	.shoppMes .shoppMesBody .shoppFontMes {
+		    width: 79.333333%;
+	}
+}
+
+.shoppMes .shoppMesBody .shoppFontMes .shoppTitle {
+	margin-top: 0.13rem;
+}
+
+.shoppMes .shoppMesBody .shoppFontMes .numSpecification {
+	margin-top: 0.1rem;
+}
+
+.shoppMes .shoppMesBody .shoppFontMes .priceNum {
+	margin-top: 0.12rem;
+	font-size: 0.3rem;
+}
+
+.shoppMes .shoppMesBody .shoppFontMes .priceNum .num {
+	font-size: 0.26rem;
+	color: rgba(153, 153, 153, 1);
+	margin-top: 0.05rem;
+}
+
+.userMes {
+	border-bottom: 0;
+}
+
+.shoppMes {
+	border-bottom: 0;
+}
+
+.shoppMes:last-child {
+	border-bottom: 1px solid rgba(228, 228, 228, 1);
+}
+.classType #myTabContent .list{
+	margin-top:0.16rem;
+	border-top:1px solid rgba(228,228,228,1);
+	border-bottom: 1px solid rgba(228,228,228,1);
+}
+.classType #myTabContent .hr{
+	height:0.08rem;
+	background:#fff;
+}
+.classType #myTabContent .shoppNumPrice{
+	font-size: 0.34rem;
+	color:rgba(51,51,51,1);
+	padding-top:0.31rem;
+	background:#fff;
+	border-bottom: 1px dashed rgba(204,204,204,1);
+	padding-bottom: 0.31rem;
+}
+.classType #myTabContent .payBtn{
+	background:#fff;
+	padding-bottom: 0.27rem;
+}
+.cancellationOfOrder{
+	width: 1.36rem;
+	height: 0.64rem;
+	font-size: 0.26rem;
+	color:rgba(153,153,153,1);
+	padding:0;
+	text-align: center;
+	line-height: 0.64rem;
+	margin-top:0.23rem;
+}
+.pay{
+	width: 1.1rem;
+	height: 0.64rem;
+	line-height: 0.64rem;
+	color:#fff;
+	background:rgba(255,61,0,1);
+	text-align: center;
+	font-size: 0.26rem;
+	padding:0;
+	border:0;
+	margin-left:0.2rem;
+	margin-top:0.23rem;
+}
+.lookLogistics{
+	width: 1.36rem;
+	height: 0.64rem;
+	color:rgba(153,153,153,1);
+	background:rgba(246,246,246,1);
+	font-size: 0.26rem;
+	padding:0;
+	margin-top:0.16rem;
+}

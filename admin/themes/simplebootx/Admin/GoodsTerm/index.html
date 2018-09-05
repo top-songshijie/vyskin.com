@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('GoodsTerm/index')}">商品分类</a></li>
+			<li><a href="{:U('GoodsTerm/add')}">添加分类</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form" action="{:U('GoodsTerm/listorders')}">
+			<div class="table-actions">
+				<button type="submit" class="btn btn-primary btn-small js-ajax-submit">{:L('SORT')}</button>
+			</div>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="50">{:L('SORT')}</th>
+						<th width="50">ID</th>
+						<th>分类名称</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{$taxonomys}
+				</tbody>
+				<tfoot>
+					<tr>
+						<th width="50">{:L('SORT')}</th>
+						<th width="50">ID</th>
+						<th>分类名称</th>
+						<th>操作</th>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="table-actions">
+				<button type="submit" class="btn btn-primary btn-small js-ajax-submit">{:L('SORT')}</button>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

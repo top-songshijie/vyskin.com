@@ -1,0 +1,749 @@
+集成时请注意：
+本文件log.txt请不要删除。
+该文本用于写日志函数。
+执行日期：20170506194659
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170506204829
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170507044109
+fail
+执行日期：20170507153454
+fail
+执行日期：20170508034912
+fail
+执行日期：20170508085820
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170508091800
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170508163730
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170510031424
+fail
+执行日期：20170511230904
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170513041115
+fail
+执行日期：20170624055126
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170626053414
+fail
+执行日期：20170626110137
+fail
+执行日期：20170806151453
+TRADE_FINISHED
+执行日期：20170806154753
+TRADE_FINISHED
+执行日期：20170806161652
+TRADE_FINISHED
+执行日期：20170806163852
+TRADE_FINISHED
+执行日期：20170806165953
+TRADE_FINISHED
+执行日期：20170806175454
+TRADE_FINISHED
+执行日期：20170806200552
+TRADE_FINISHED
+执行日期：20170806200752
+TRADE_FINISHED
+执行日期：20170807194753
+TRADE_FINISHED
+执行日期：20170807204852
+TRADE_FINISHED
+执行日期：20170809085852
+TRADE_FINISHED
+执行日期：20170809091852
+TRADE_FINISHED
+执行日期：20170809163753
+TRADE_FINISHED
+执行日期：20170812230952
+TRADE_FINISHED
+执行日期：20170824142306
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170824162450
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170824180047
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170824182527
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170824223831
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170825105105
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170825133831
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170825163746
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826014546
+fail
+执行日期：20170826091448
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826100752
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826114140
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826115143
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826130229
+fail
+执行日期：20170826132251
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826164858
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170826172457
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170827012042
+fail
+执行日期：20170828010944
+fail
+执行日期：20170828094509
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170828182343
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170828205143
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170828233613
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170829123338
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170829145323
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170830013854
+fail
+执行日期：20170830115626
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170830115631
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170830141642
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170830202605
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170830213230
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831014557
+fail
+执行日期：20170831095052
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831101334
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831103851
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831113911
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831115133
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831122304
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831130958
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831132608
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831133026
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831141504
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831141526
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831155332
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831181706
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170831212927
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901012008
+fail
+执行日期：20170901082357
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901092945
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901093022
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901102633
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901103624
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901130635
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901134825
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901134844
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901135250
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901182011
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901215210
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901215747
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170901220035
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902015248
+fail
+执行日期：20170902062519
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902084626
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902102234
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902102759
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902121717
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902145226
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170902221205
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170903013908
+fail
+执行日期：20170903020412
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170903073610
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170903112419
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170903124408
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170903184331
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170904010856
+fail
+执行日期：20170904091918
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170904094818
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170904095210
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170904111932
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170904131444
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170904181809
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905010540
+fail
+执行日期：20170905133400
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905135055
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905140005
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905144917
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905152702
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905175759
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905204632
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905210255
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170905222444
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906104314
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906105505
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906110403
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906113443
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906114910
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906142853
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906151504
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906154827
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906200718
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906204123
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906205149
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906205902
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906220923
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170906221514
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170907013939
+fail
+执行日期：20170907074124
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170907150950
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170907162017
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170907223440
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170907225243
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170907225609
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170908011245
+fail
+执行日期：20170908150953
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909011910
+fail
+执行日期：20170909070429
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909094518
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909110652
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909122125
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909152207
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909195436
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170909221500
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170910013048
+fail
+执行日期：20170910173636
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170910195549
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170910214326
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911011540
+fail
+执行日期：20170911110220
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911115150
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911130951
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911142959
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911162232
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911171758
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911180916
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170911191156
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912010919
+fail
+执行日期：20170912114418
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912115409
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912135420
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912211636
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912220521
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912231749
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170912232039
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170913011846
+fail
+执行日期：20170913093815
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170913125823
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170913183810
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170913185321
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170914011944
+fail
+执行日期：20170914222950
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170916014621
+fail
+执行日期：20170916205120
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170918011020
+fail
+执行日期：20170918131852
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170925055208
+TRADE_FINISHED
+执行日期：20170926202618
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170927131327
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170927170011
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170927175103
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170927221431
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928071439
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928093837
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928100257
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928102403
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928110739
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928114830
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928131845
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170928155159
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929092817
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929101230
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929103534
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929110444
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929123658
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929140843
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929143112
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929162425
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929162530
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929165451
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929172517
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929183904
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929204311
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929214139
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929220447
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929222402
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929225408
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170929232511
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930074332
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930112348
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930114532
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930135758
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930140031
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930144839
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930224459
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20170930225346
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171001073006
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171001074941
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171001080209
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171001093556
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171001144701
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171001203924
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171002122032
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171002122147
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171003080208
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171003223647
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171004104005
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171004132619
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171005104428
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171005113147
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171006041531
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171006092913
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171006131601
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171007135646
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171008110804
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171008125636
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171008151133
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171008184102
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171008201015
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171009092150
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171009153358
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171009174144
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171009190029
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171009204409
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010082551
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010091747
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010105656
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010133326
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010141456
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010145657
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010145928
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010162812
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171010205332
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171011053857
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171011065405
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171011083701
+responseTxt=
+ return_url_log:isSign=false,
+执行日期：20171011112342
+responseTxt=
+ return_url_log:isSign=false,

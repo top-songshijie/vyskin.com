@@ -1,0 +1,32 @@
+.model .againInput{
+	width:149px;
+}
+.model .againInput input{
+	width:149px;
+}
+.model .verify{
+	width: 50.666667%;
+}
+.model .verify .verifyImg{
+	width: 115px;
+	height: 45px;
+	margin-top:20px;
+	margin-left:11px;
+}
+.model .verify .verifyImg img{
+	width: 115px;
+	height: 45px;
+}
+.model .verify .Change{
+	width: 48px;
+	height: 16px;
+	font-size: 16px;
+	color:rgba(153,153,153,1);
+	margin-top:34px;
+	margin-left:10px;
+}
+.model .getPassword #getPassword{
+	width: 18px;
+	height: 18px;
+	background:#fff;
+} 

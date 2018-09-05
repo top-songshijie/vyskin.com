@@ -1,0 +1,224 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<form action="{:U('Order/fahuo')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span12">
+					<table class="table table-bordered">
+						<tr>
+							<th width="80">订单编号</th>
+							<td>{$order.order_sn}</td>
+							<th width="80">下单时间</th>
+							<td>{$order['addtime']|date='Y-m-d H:i:d',###}</td>
+						</tr>
+						<tr>
+							<th>用户名称</th>
+							<td>{$order.user_nicename}(TEL:{$order['mobile']})</td>
+							<th>支付时间</th>
+							<td>
+								<notempty name="order.paytime">
+									{$order.paytime|date='Y-m-d H:i:d',###}
+								</notempty>
+							</td>
+						</tr>
+						<tr>
+							<th width="80">订单金额</th>
+							<td>{$order.price}</td>
+							<th width="80">订单状态</th>
+							<td>
+								<php> $statusArray=array("1"=>'未支付',"2"=>'已支付','3'=>'已完成','4'=>'已发货'); </php>
+								{$statusArray[$order['status']]}
+							</td>
+						</tr>
+						<tr>
+							<th width="80">收货人</th>
+							<td>{$order.sh_name}</td>
+							<th width="80">联系电话</th>
+							<td>{$order.sh_mobile}</td>
+						</tr>
+						<tr>
+							<th width="80">收货地址</th>
+							<td>{$order.sh_address}</td>
+							<th width="80">物流单号</th>
+							<td>
+								<input name="shipment" required type="text" value="{$order.shipment}">
+								<input name="id" type="hidden" value="{$order.id}">
+							</td>
+						</tr>
+					</table>
+					<table class="table table-bordered">
+						<tr>
+							<th>商品名称</th>
+							<th>商品属性</th>
+							<th>商品单价</th>
+							<th>商品数量</th>
+							<th>小计</th>
+						</tr>
+						<volist name="detail" id="vo">
+							<php>$smeta=json_decode($vo['smeta'], true);</php>
+							<tr>
+								<td>{$vo['title']}
+									<img style="height: 50px;" src="{:sp_get_asset_upload_path($smeta['thumb'])}">
+								</td>
+								<td>{$vo['attribute']}</td>
+								<td>{$vo['price']}</td>
+								<td>{$vo['number']}</td>
+								<td>{$vo['amount']}</td>
+							</tr>
+						</volist>
+						<tr><td colspan="3"></td><td style="text-align: right">总计</td><td>{$amount}</td></tr>
+					</table>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+				<a class="btn" href="{:U('Order/goods')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+	<script type="text/javascript">
+        $(function() {
+            $(".js-ajax-close-btn").on('click', function(e) {
+                e.preventDefault();
+                Wind.use("artDialog", function() {
+                    art.dialog({
+                        id : "question",
+                        icon : "question",
+                        fixed : true,
+                        lock : true,
+                        background : "#CCCCCC",
+                        opacity : 0,
+                        content : "您确定需要关闭当前页面嘛？",
+                        ok : function() {
+                            setCookie("refersh_time", 1);
+                            window.close();
+                            return true;
+                        }
+                    });
+                });
+            });
+            /////---------------------
+            Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+                var form = $('form.js-ajax-forms');
+                //ie处理placeholder提交问题
+                if ($.browser && $.browser.msie) {
+                    form.find('[placeholder]').each(function() {
+                        var input = $(this);
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                        }
+                    });
+                }
+
+                var formloading = false;
+                //表单验证开始
+                form.validate({
+                    //是否在获取焦点时验证
+                    onfocusout : false,
+                    //是否在敲击键盘时验证
+                    onkeyup : false,
+                    //当鼠标掉级时验证
+                    onclick : false,
+                    //验证错误
+                    showErrors : function(errorMap, errorArr) {
+                        try {
+                            $(errorArr[0].element).focus();
+                            art.dialog({
+                                id : 'error',
+                                icon : 'error',
+                                lock : true,
+                                fixed : true,
+                                background : "#CCCCCC",
+                                opacity : 0,
+                                content : errorArr[0].message,
+                                cancelVal : '确定',
+                                cancel : function() {
+                                    $(errorArr[0].element).focus();
+                                }
+                            });
+                        } catch (err) {
+                        }
+                    },
+                    //验证规则
+                    rules : {
+                        'shipment' : {
+                            required : 1
+                        }
+                    },
+                    //验证未通过提示消息
+                    messages : {
+                        'shipment' : {
+                            required : '请输入物流单号'
+                        }
+                    },
+                    //给未通过验证的元素加效果,闪烁等
+                    highlight : false,
+                    //是否在获取焦点时验证
+                    onfocusout : false,
+                    //验证通过，提交表单
+                    submitHandler : function(forms) {
+                        if (formloading)
+                            return;
+                        $(forms).ajaxSubmit({
+                            url : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                            dataType : 'json',
+                            beforeSubmit : function(arr, $form, options) {
+                                formloading = true;
+                            },
+                            success : function(data, statusText, xhr, $form) {
+                                formloading = false;
+                                if (data.status) {
+                                    setCookie("refersh_time", 1);
+                                    Wind.use("artDialog", function() {
+                                        art.dialog({
+                                            id : "succeed",
+                                            icon : "succeed",
+                                            fixed : true,
+                                            lock : true,
+                                            background : "#CCCCCC",
+                                            opacity : 0,
+                                            content : data.info,
+                                            button : [ {
+                                                name : '继续编辑？',
+                                                callback : function() {
+                                                    reloadPage(window);
+                                                    return true;
+                                                },
+                                                focus : true
+                                            }, {
+                                                name : '返回列表页',
+                                                callback : function() {
+                                                    location = "{:U('Order/goods')}";
+                                                    return true;
+                                                }
+                                            } ]
+                                        });
+                                    });
+                                } else {
+                                    artdialog_alert(data.info);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+            ////-------------------------
+        });
+
+        function addattribute() {
+            var html='<li>' +
+                '<input  name="attribute_key[]" value="" style="width: 150px;" placeholder="属性名称:如尺寸" type="text" title="属性名称">' +
+                '<input  name="attribute_value[]" value="" style="width: 300px;" placeholder="M,L,XL,XXL" title="属性值：多个属性以英文逗号隔开" type="text"> ' +
+                '<a href="javascript:;" onclick="delattribute($(this))">移除</a> ' +
+                '</li>';
+            $('#attribute').append(html);
+        }
+
+        function delattribute(obj) {
+            obj.parent().remove();
+        }
+	</script>
+</body>
+</html>

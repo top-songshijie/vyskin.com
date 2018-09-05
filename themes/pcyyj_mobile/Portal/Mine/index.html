@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>个人中心</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/user.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<div class='container-fluid'>
+			<div class="row">
+				<div class="col-xs-12 user_1" style="background:rgba(252,63,29,1);">
+					<div class="col-xs-12 user_2 padding">
+						<img src="{:sp_get_asset_upload_path($mymessage['avatar'])}" alt="" />
+					</div>
+
+					<div class="col-xs-12">
+						<div class="col-xs-6 col-xs-offset-3 user_4 text-center">{$mymessage.user_login}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-xs-12 user_6'>
+					<div class="col-xs-1 padding" style="margin-top:0.02rem;">
+						<img src="__TMPL__Public/assets/img/my_iconsmall22.png" alt="" />
+					</div>
+					<a href="{:U('Portal/Mine/orderListPhone')}" style="color: #333333"><div class="col-xs-3 padding user_6_1">我的订单</div></a>
+					<div class="col-xs-1 pull-right user_6_2">
+						<span class='glyphicon glyphicon-menu-right'></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-xs-12 user_5'>
+					<div class='col-xs-3 text-center'>
+						<div class="col-xs-12 img" style="border-right: 0;">
+							<img src="__TMPL__Public/assets/img/my_iconbig1.png" alt="" />
+							<div>{$count1}</div>
+						</div>
+						<div class="col-xs-12 user_7">未支付</div>
+					</div>
+					<div class='col-xs-3 text-center'>
+						<div class="col-xs-12 img" style="border-right: 0;">
+							<img src="__TMPL__Public/assets/img/my_iconbig1.png" alt="" />
+							<div>{$count2}</div>
+						</div>
+						<div class="col-xs-12 user_7">已支付</div>
+					</div>
+					<div class='col-xs-3 text-center'>
+						<div class="col-xs-12 img" style="border-right: 0;">
+							<img src="__TMPL__Public/assets/img/my_iconbig3.png" alt="" />
+							<div>{$count3}</div>
+						</div>
+						<div class="col-xs-12 user_7">已完成</div>
+					</div>
+					<div class='col-xs-3 text-center'>
+						<div class="col-xs-12 img" style="border-right: 0;">
+							<img src="__TMPL__Public/assets/img/my_iconbig4.png" alt="" />
+							<div>{$count4}</div>
+						</div>
+						<div class="col-xs-12 user_7">已取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class='row' style="margin-top:0.075rem;">
+				<div class="col-xs-12 user_8">
+					<img class="col-xs-2 padding" style="width:0.15rem;height:0.17rem;" src="__TMPL__Public/assets/img/my_iconsmall33.png" alt="" />
+					<a href="{:U('Mine/getAddressListPhone')}"><div class="col-xs-6" style="color: #333333">收货地址</div></a>
+					<span class="glyphicon glyphicon-menu-right pull-right"></span>
+				</div>
+				<div class="col-xs-12 user_8">
+					<img class="col-xs-2 padding" style="width:0.16rem;height:0.16rem;" src="__TMPL__Public/assets/img/my_iconsmall44.png" alt="" />
+					<a href="{:U('Mine/editMyMessagePhone')}"><div class="col-xs-6" style="color: #333333">个人设置</div></a>
+					<span class="glyphicon glyphicon-menu-right pull-right"></span>
+				</div>
+				<div class="col-xs-12 user_8 LogOut">
+					<img class="col-xs-2 padding" style="margin-top:0.06rem;width:0.16rem;height:0.14rem;" src="__TMPL__Public/assets/img/7.png" alt="" />
+					<div class="col-xs-6">退出登录</div>
+					<span class="glyphicon glyphicon-menu-right pull-right"></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 LogOutMoudel">
+			<div class="col-xs-10 col-xs-offset-1 padding moudel">
+				<div class="col-xs-12 title">
+					退出当前账号？
+				</div>
+				<div class="col-xs-6 exit text-center"><a href="{:('User/Logout/index')}" style="color: #666666">退出</a></div>
+				<div class="col-xs-6 cancel text-center">取消</div>
+			</div>
+		</div>
+
+		<script src="__TMPL__Public/assets/js/fontsize.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/user.js"></script>
+	</body>
+
+</html>

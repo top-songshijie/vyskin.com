@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>所有产品</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/allShop.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+	<tc_include file="Public:header2" />
+		<!-- 页面主体 -->
+		<div class="warp">
+			
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-12 ShoppList" style="padding-bottom: 250px;">
+					<foreach name="list" item="vo">
+					<div class="col-xs-4 list">
+						<a href="{:U('Goods/goodsDetail',array('id'=>$vo['id']))}">
+							<img src="{:sp_get_asset_upload_path($vo['smeta'])}" width="100%" height="100%" alt="" />
+						</a>
+					</div>
+					</foreach>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2" />
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/allShop.js"></script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container', {
+				direction: 'horizontal',
+				loop: true,
+
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+
+				// 如果需要前进后退按钮
+				//								nextButton: '.swiper-button-next',
+				//								prevButton: '.swiper-button-prev',
+
+				// 如果需要滚动条
+				//				scrollbar: '.swiper-scrollbar',
+			})
+		</script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container1', {
+				direction: 'horizontal',
+				slidesPerView: 4,
+				spaceBetween: 20,
+
+				// 如果需要分页器
+				//				pagination: '.swiper-pagination',
+
+				// 如果需要前进后退按钮
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+
+				// 如果需要滚动条
+				//				scrollbar: '.swiper-scrollbar',
+			})
+		</script>
+	</body>
+
+</html>

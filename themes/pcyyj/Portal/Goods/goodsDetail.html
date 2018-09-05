@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>产品详情</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/sensitiveSkinSee.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/pressCenter.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/goodsDetails.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<style>
+			.ccimg p:nth-child(1) img{
+				width:100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<tc_include file="Public:header2" />
+		<!-- 页面主体 -->
+		<div class="warp">
+		<php>
+			$smeta=json_decode($goods['smeta'],true);
+			$thumb=$smeta['thumb'];
+			$thumb=sp_get_asset_upload_path($thumb);
+			$attribute=json_decode($goods['attribute'],true);
+			$arr_value=explode(",",$attribute[0]['value']);
+			$arr_price=explode(",",$attribute[0]['price']);
+			$key=$attribute[0]['key'];
+			foreach($arr_value as $k=>$v){
+				$arr_value[$k]=array('key'=>$key,'value'=>$v,'price'=>$arr_price[$k]);
+			}
+			$arr=$arr_value;
+		</php>
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-4 col-xs-offset-1 imgGoods">
+					<img src="{$thumb}" alt="" />
+				</div>
+				<form action="{:U('Order/orderConfirmationpc')}" id ="myform" method="post">
+				<div class="col-xs-5 col-xs-offset-2 padding goodsMes">
+					<div class="col-xs-12 englishName  padding">
+						{$goods.keywords}
+					</div>
+					<div class="col-xs-12 chinaName  padding">
+						{$goods.title}
+					</div>
+					<div class="col-xs-12 intro  padding">
+						{$goods.excerpt}
+					</div>
+					<div class="col-xs-12 specification  padding">
+						<div class="col-xs-2 padding title">
+							选择规格
+						</div>
+						<div class="col-xs-10 padding input_">
+							<select class="selectpicker" name="select" id="select">
+								<volist name='arr' id='vo'>
+									<option value="{$vo.key},{$vo.value},{$vo.price}">{$vo.key}{$vo.value} 价格{$vo.price}元</option>
+								</volist>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-12 padding specification">
+						<div class="col-xs-2 padding title">
+							购买数量
+						</div>
+						<div class="col-xs-10 padding input_">
+							<input type="hidden" name="goods_id" id="goods_id" value="{$goods.id}">
+							<input type="text" name="number" value="1" id="number" class="selectpicker">
+						</div>
+					</div>
+					<div class="col-xs-12 addShopping">
+						<div class="col-xs-4 padding addIMg" id="addcart">
+							<img src="__TMPL__Public/assets/images/addimg.png" alt="" />
+						</div>
+						<div class="col-xs-4 padding addIMg text-right" id="buy">
+							<img src="__TMPL__Public/assets/images/purchase.png" alt="" />
+						</div>
+					</div>
+				</div>
+				<form>
+			</div>
+			<!--中通-->
+			<div class="col-xs-12 padding">
+				<div class="col-xs-12 hr_"></div>
+				<div class="col-xs-12 text-center titleDetails">
+					产品详情
+				</div>
+ 				</div>
+		</div>
+		<div class="container-fluid" style="margin-left:0;">
+			<div class="row">
+				<div class="col-xs-12 padding ccimg" style="margin-bottom: 59px;">
+					<div class="col-xs-12 padding ">
+						{$goods.content}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2" />
+
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/sensitiveSkinSee.js"></script>
+		<script src="__TMPL__Public/assets/js/pressCenter.js"></script>
+		<script src="__TMPL__Public/assets/js/goodsDetails.js"></script>
+		<script type="text/javascript">
+			$('#addcart').click(function(){
+			    var goods_id = $('#goods_id').val();
+			    var number = $('#number').val();
+			    var select = $('#select').val();
+			    $.ajax({
+			        type:"POST",
+			        url:"{:U('Mycar/addcart')}",
+			        data:{
+			        	"goods_id":goods_id,
+			        	"number":number,
+			        	"select":select,
+			        },
+			        success:function (data) {
+			            if(data.code==200){
+                            window.location.href="http://vyskin.com/index.php?g=&m=Mycar&a=index";
+			            }
+			            else {
+			                alert(data.msg);
+			            }
+			        },
+			        error:function () {
+			            alert("网络错误");
+			        }
+			    })
+			})
+
+	    $('#buy').click(function(){
+        $('#myform').submit();
+    })
+	   </script>
+	</body>
+
+</html>

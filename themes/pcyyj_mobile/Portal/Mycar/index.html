@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>购物车</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalSetting.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/shoppingCart.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<a href="javascript:history.go(-1)">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+						</a>
+					</div>
+					<div class="col-xs-8 font text-center">
+						购物车
+					</div>
+					<div class="col-xs-1 padding compile" onclick="compile($(this))">编辑</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<volist name="list['data']" id="vo">
+				<div class="col-xs-12 shoppList" onclick="shoppList($(this))" data-id="{$vo.id}">
+					<div class="col-xs-1 padding True">
+						<img src="__TMPL__Public/assets/img/shoppCarNo.png" alt="" />
+					</div>
+					<div class="col-xs-3 padding shoppImg">
+						<img src="__TMPL__Public/assets/img/pro_xhr_pic1.png" alt="" />
+					</div>
+					<div class="col-xs-8 padding ">
+						<div class="col-xs-12 padding title">
+							{$vo.title}
+						</div>
+						<div class="col-xs-12 padding specification">
+							规格：{$vo.attribute}
+						</div>
+						<div class="col-xs-12 padding">
+							<div class="col-xs-3 padding price">
+								¥{$vo.price}
+							</div>
+							<div class="col-xs-6 pull-right padding">
+								<nav aria-label="Page navigation">
+									<ul class="pagination pull-right">
+										<li  onclick="subtraction($(this))" data-id="{$vo.id}">
+											<a href="#" aria-label="Previous">
+												<span class="glyphicon glyphicon-minus"></span>
+											</a>
+										</li>
+										<li>
+											<a href="#"  class="num">{$vo.number}</a>
+										</li>
+										<li onclick="addition($(this))" data-id="{$vo.id}">
+											<a href="#" aria-label="Next">
+												<span class="glyphicon glyphicon-plus"></span>
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+				</volist>
+				<!--结算-->
+				<nav class="navbar navbar-default navbar-fixed-bottom closeAnAccount">
+					<div class="container padding_right" style="height:100%;">
+						<div class="col-xs-1 padding checkAll" onclick="checkAll($(this))">
+							<img src="__TMPL__Public/assets/img/shoppCarNo.png" alt="" />
+						</div>
+						<div class="col-xs-2 padding_right checkAllFort">全选</div>
+						<div class="col-xs-5 total padding">合计：¥0</div>
+						<div class="col-xs-4 pull-right GoTotal text-center" onclick="GoTotal()">
+							去结算 <b>〉</b>
+						</div>
+					</div>
+				</nav>
+				<!--删除-->
+				<nav class="navbar navbar-default navbar-fixed-bottom del">
+					<div class="container padding_right" style="height:100%;">
+						<div class="col-xs-1 padding checkAll" onclick="checkAll($(this))">
+							<img src="__TMPL__Public/assets/img/shoppCarNo.png" alt="" />
+						</div>
+						<div class="col-xs-2 padding_right checkAllFort">全选</div>
+						<div class="col-xs-4 pull-right GoTotal text-center" onclick="del($(this))">
+							删除
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+		<script src="__TMPL__Public/assets/js/personalSetting.js"></script>
+		<script src="__TMPL__Public/assets/js/shoppingCart.js"></script>
+		<script>
+			
+			//结算
+			function GoTotal(){
+				//購物車id
+				var id = getIds();
+				id = id.join(",");
+//				alert(id)
+				window.location.href="http://vyskin.com/Order/orderConfirmation?id="+id;
+						    console.log(id);
+			}
+			function getIds(){
+				var clas = $(".shoppList")
+					var id = []
+					clas.each(function(){
+						if($(this).find(".True img").attr("src") == "http://vyskin.com/themes/pcyyj_mobile/Public/assets/img/shoppCarYes.png"){
+//							console.log($(this)[0].dataset.id)
+							id.push($(this)[0].dataset.id)
+						}
+					})
+					return id
+			}
+		</script>
+	</body>
+
+</html>

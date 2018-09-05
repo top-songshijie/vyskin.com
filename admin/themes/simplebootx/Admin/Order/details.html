@@ -1,0 +1,43 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <form action="{:U('Order/detail2',array('id'=>$service['id']))}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+        <div class="row-fluid">
+            <div class="span12">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="80">订单编号</th>
+                        <td>{$service.order_sn}</td>
+                        <th width="80">添加时间</th>
+                        <td>{$service['ctime']|date='Y-m-d H:i:d',###}</td>
+                    </tr>
+                    <tr>
+                        <th>用户名称</th>
+                        <td>{$service.user_nicename}</td>
+                        <th>选择服务</th>
+                        <td>{$service.service}</td>
+                    </tr>
+                    <tr>
+                        <th width="80">类型选择</th>
+                        <td>{$service.sort}</td>
+                        <th width="80">申请说明</th>
+                        <td>{$service.content}</td>
+                    </tr>
+                    <tr>
+                        <th width="80">售后图片</th>
+                        <td><foreach name="thumb" item="tb"><img src="/data/upload/avatar/{$tb}" width="200"/></foreach></td>
+                        <th width="80">联系电话</th>
+                        <td>{$order.sh_mobile}</td>
+                    </tr>
+                </table>
+                <div class="form-actions">
+                    <button class="btn btn-primary js-ajax-submit" type="submit">查看订单</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

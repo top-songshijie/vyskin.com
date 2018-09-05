@@ -1,0 +1,88 @@
+.kefu_warp .login{
+	margin-top:123px;
+	-webkit-box-shadow: 0px 0px 15px rgba(0,0,0,.2);
+	-moz-box-shadow: 0px 0px 15px rgba(0,0,0,.2);
+	    box-shadow: 0px 0px 15px rgba(0,0,0,.2);
+}
+.kefu_warp .login .img{
+	width: 385px;
+	height: 500px;
+}
+.kefu_warp .login .img img{
+	width: 385px;
+	height: 500px;
+}
+.kefu_warp .login .model{
+	margin-top:40px;
+}
+.kefu_warp .login .model .vipSignln{
+	font-size: 20px;
+	color:rgba(153,153,153,1);
+	
+}
+.kefu_warp .login .model .go{
+	font-size: 14px;
+	color:rgba(87,87,87,1);
+	margin-top:6px;
+}
+.kefu_warp .login .model .hr_{
+	margin-top:29px;
+	border-bottom: 1px solid rgba(228,228,228,1);
+}
+.kefu_warp .login .model .phoneInput{
+	padding:0;
+	margin-top:48px;
+}
+.kefu_warp .login .model .phoneInput input{
+	width:334px;
+	height:45px;
+	text-indent: 1em;
+}
+.kefu_warp .login .model .passInput{
+	padding:0;
+	margin-top:35px;
+}
+.kefu_warp .login .model .passInput input{
+	width:334px;
+	height:45px;
+	text-indent: 1em;
+}
+.kefu_warp .login .model .authCodeInput{
+	padding:0;
+	margin-top:35px;
+	position: relative;
+}
+.kefu_warp .login .model .authCodeInput input{
+	width:334px;
+	height:45px;
+	text-indent: 1em;
+}
+.kefu_warp .login .model .authCodeInput .countDown{
+	position:absolute;
+	top:0;
+	right:-23px;
+	width: 69px;
+	height: 37px;
+	line-height: 35px;
+	padding:0;
+	background:rgba(87,87,87,1);
+	color:#fff;
+	margin-top:4px;
+	font-size: 16px;
+	border-radius:0;
+	text-indent: 0;
+	border:0;
+}
+.kefu_warp .login .model .loginBtn{
+	width:334px;
+	height:45px;
+	margin-top:50px;
+}
+.kefu_warp .login .model .loginBtn button{
+	width:334px;
+	height:45px;
+	background:rgba(255,61,0,1);
+	border-radius: 0;
+	color:#fff;
+	border:0;
+}

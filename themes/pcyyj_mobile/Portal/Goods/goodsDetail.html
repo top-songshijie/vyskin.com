@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>产品详情页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="__TMPL__Public/assets/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/app.css" />
+   	<link rel="stylesheet" href="__TMPL__Public/assets/css/index.css" />
+   	<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+   	<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<!--头部-->
+<tc_include file="Public:header2" />
+
+<div class="mui-content">
+    <php>
+        $smeta=json_decode($goods['smeta'],true);
+        $thumb=$smeta['thumb'];
+        $thumb=sp_get_asset_upload_path($thumb);
+        $attribute=json_decode($goods['attribute'],true);
+        $arr_value=explode(",",$attribute[0]['value']);
+        $arr_price=explode(",",$attribute[0]['price']);
+        $key=$attribute[0]['key'];
+        foreach($arr_value as $k=>$v){
+        $arr_value[$k]=array('key'=>$key,'value'=>$v,'price'=>$arr_price[$k]);
+        }
+        $arr=$arr_value;
+    </php>
+    <div class="product_container">
+        <div class="image_warp">
+            <img src="{$thumb}" width="100%" />
+        </div>
+        <form action="{:U('Order/orderConfirmationphone')}" method="post" id="myform">
+           <div class="product_detail_ac">
+            <div class="single_ac mui-row">
+                <span class="mui-pull-left">规格：</span>
+                <select class="pro_detail_select" name="select" id="select">
+                    <volist name='arr' id='vo'>
+                        <option value="{$vo.key},{$vo.value},{$vo.price}">{$vo.key}:{$vo.value} 零售价:{$vo.price}元</option>
+                    </volist>
+                </select>
+                <!--<select class="pro_detail_select">-->
+                    <!--<option>净含量：1ml*6 零售价：150元</option>-->
+                <!--</select>-->
+            </div>
+            <div class="single_ac mui-row">
+                <span class="mui-pull-left">数量：</span>
+                <input type="hidden" name="goods_id" id="goods_id" value="{$goods.id}">
+                <input type="text" name="number" value="1" id="number" class="pro_detail_select" style="width: 84%;">
+                <!--<select class="pro_detail_select">-->
+                    <!--<option>1</option>-->
+                    <!--<option>2</option>-->
+                    <!--<option>3</option>-->
+                <!--</select>-->
+            </div>
+
+            <div class="buy_ac">
+                <div class="single_buy_ac" id="addcart">
+                    <img src="__TMPL__Public/assets/img/pro_btn_add.png" width="100%" />
+                </div>
+                <div class="single_buy_ac" id="buy">
+                    <img src="__TMPL__Public/assets/img/pro_btn_buy.png" width="100%" />
+                </div>
+            </div>
+          </div>
+		</form>
+        <div class="single_label">
+            <span class="label_name">产品详情</span>
+        </div>
+        <style>
+            .product_detail_warp img{
+                width: 100%;
+                height: auto;
+            }
+        </style>
+        <div class="product_detail_warp" >
+            {$goods.contentwap}
+            <!--<img src='__TMPL__Public/assets/img/产品详情页手机水＋乳-01.jpg' width="100%" />-->
+            <!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_02.png' width="100%" />-->
+            <!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_03.png' width="100%" />-->
+            <!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_04.png' width="100%" />-->
+            <!--<img src='__TMPL__Public/assets/img/pro_bns_pic2_01_05.png' width="100%" />-->
+
+        </div>
+    </div>
+    <!--单个产品模块-->
+</div>
+<tc_include file="Public:footer2" />
+<!--<nav class="footer_ac">-->
+    <!--<div class="mui-pull-left nav_left">-->
+        <!--<img src="__TMPL__Public/assets/img/footer_icon2.png" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=997031758&o=vyskin.com&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"/>-->
+        <!--在线客服-->
+        <!--|-->
+        <!--<a href="{:U('Mine/index')}" style="color: #fff">-->
+        <!--会员中心-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="nav_right"><a href="{:U('Mycar/index')}" style="color: #fff">购物袋</a><span class="mui-icon mui-icon-arrowright"></span></div>-->
+<!--</nav>-->
+<script src="__TMPL__Public/assets/js/mui.min.js"></script>
+<script src="__TMPL__Public/assets/js/jquery-2.1.0.js"></script>
+<script src="__TMPL__Public/assets/js/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+    $('#addcart').click(function(){
+        var goods_id = $('#goods_id').val();
+        var number = $('#number').val();
+        var select = $('#select').val();
+        $.ajax({
+            type:"POST",
+            url:"{:U('Mycar/addcart')}",
+            data:{
+                "goods_id":goods_id,
+                "number":number,
+                "select":select,
+            },
+            success:function (data) {
+                if(data.code==200){
+                    window.location.href="http://vyskin.com/index.php?g=&m=Mycar&a=index";
+                }
+                else {
+					window.location.href="http://vyskin.com/index.php?g=User&m=Login&a=login";
+//                    alert(data.msg);
+                }
+            },
+            error:function () {
+                alert("网络错误");
+            }
+        })
+    })
+
+    $('#buy').click(function(){
+        $('#myform').submit();
+    })
+</script>
+<script type="text/javascript">
+    mui.init()
+    //轮播图初始化
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    //导航出现
+    document.getElementById('aslide_bar').addEventListener('tap', function() {
+        $('aside').animate({
+            left: '0'
+        });
+        $('body').css({
+            "position": 'fixed',
+            'overflow': 'hidden'
+        })
+    })
+    //
+    document.getElementById('asilde_close').addEventListener('tap', function() {
+        closeAsilde();
+    })
+    mui('body').on('tap', 'aside', function() {
+        closeAsilde();
+    })
+    mui('aside').on('tap', '.left_menu_container', function(e) {
+        e.stopPropagation()
+    })
+
+    function closeAsilde() {
+        $('aside').animate({
+            left: '-100%'
+        });
+        $('body').css({
+            "position": 'static',
+            'overflow': 'auto'
+        })
+    }
+    //折叠
+    mui('.left_menu_container').on('tap', '.drowp_down', function() {
+        if($(this).hasClass('open')) {
+            $(this).removeClass('open')
+            $(this).find('.sec_node').slideUp()
+        } else {
+            $(this).addClass('open')
+            $(this).find('.sec_node').slideDown()
+        }
+    })
+    mui('.sec_node').on('tap', 'li', function(e) {
+        e.stopPropagation();
+        mui.openWindow($(this).find('a').attr('href'));
+    })
+</script>
+</body>
+
+</html>

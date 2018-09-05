@@ -1,0 +1,9 @@
+.article .time{
+	font-size: 12px;
+	color:#ccc;
+}
+.article .hr_{
+	border-bottom: 2px solid #000;
+	margin-top:10px;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,44 @@
+.head .list{
+	color:rgba(51,51,51,1);
+}
+.head .list .list_input{
+	
+}
+.head .list .list_input input{
+	border:0;
+	line-height:initial;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    rgba(179,179,179,1);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    rgba(179,179,179,1);
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    rgba(179,179,179,1);
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    rgba(179,179,179,1);
+}
+.list .images img{
+	width: 0.34rem;
+	height: 0.34rem;
+	vertical-align:initial;
+	margin-top:0.35rem;
+}
+.saveAddress{
+	background:rgba(255,61,0,1);
+	color:#fff;
+	text-align: center;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	margin-top:0.38rem;
+	border-radius: 0.05rem;
+}
+.listLocation{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}

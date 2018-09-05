@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>收货地址</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalSetting.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/createNewAddress.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/weui.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+					</div>
+					<div class="col-xs-8 font text-center">
+						编辑地址
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 padding_right head">
+					<div class="col-xs-12 padding list">
+						<div class="col-xs-3 padding">联系人</div>
+						<div class="col-xs-8 col-xs-offset-1 padding list_input">
+							<input type="text" value="{$info.sh_name}" placeholder="请输入联系人姓名" id="sh_name"/>
+						</div>
+					</div>
+					<div class="col-xs-12 padding list">
+						<div class="col-xs-3 padding">联系手机</div>
+						<div class="col-xs-8 col-xs-offset-1 padding list_input">
+							<input type="text" value="{$info.sh_mobile}" placeholder="请输入联系手机号码" id="sh_mobile"/>
+						</div>
+					</div>
+					<div class="col-xs-12 padding list listCit">
+						<div class="col-xs-3 padding">所在区域</div>
+						<div class="col-xs-1 pull-right padding list_input">
+							<span class="glyphicon glyphicon-menu-right" style="color:rgba(153,153,153,1);"></span>
+						</div>
+						<div class="col-xs-8 pull-right listLocation text-right">{$info.sheng}{$info.shi}{$info.qu}</div>
+						<input type="hidden" id="sheng" value="{$info.sheng}">
+						<input type="hidden" id="shi" value="{$info.shi}">
+						<input type="hidden" id="qu" value="{$info.qu}">
+						<input type="hidden" id="address_id" value="{$info.id}">
+						
+					</div>
+					<div class="col-xs-12 padding list">
+						<div class="col-xs-3 padding">详细地址</div>
+						<div class="col-xs-8 col-xs-offset-1 padding list_input">
+							<input type="text" value="{$info.xiangxi}" placeholder="请输入详细地址" id="xiangxi"/>
+						</div>
+					</div>
+					<div class="col-xs-12 padding list listYN">
+						<div class="col-xs-1 padding images">
+							<php>
+								if($info['status']==1){
+									echo "<input type='hidden' id='status' value='1'>";
+									echo "<img src='__TMPL__Public/assets/img/defaultYes.png' />";
+								}else{
+									echo "<input type='hidden' id='status' value='0'>";
+									echo "<img src='__TMPL__Public/assets/img/defaultNo.png' />";
+								}
+							</php>
+						</div>
+						<div class="col-xs-10 padding">设为默认地址</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="col-xs-12 saveAddress" >
+						保存地址
+					</div>
+				</div> 
+			</div>
+		</div>
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+		<script src="__TMPL__Public/assets/js/personalSetting.js"></script>
+		<script src="__TMPL__Public/assets/js/weui.js"></script>
+		<script src="__TMPL__Public/assets/js/citypicker.js"></script>
+		<script>
+			$(function(){
+			var status = $('#status').val();
+			
+			$(".listYN").on("click",function(){
+				var src = $(this).find(".images img").attr("src")
+				if(src == "/themes/pcyyj_mobile/Public/assets/img/defaultYes.png"){
+					 $(this).find(".images img").attr("src","/themes/pcyyj_mobile/Public/assets/img/defaultNo.png")
+					 status = 0
+				}else{
+					$(this).find(".images img").attr("src","/themes/pcyyj_mobile/Public/assets/img/defaultYes.png")
+					status = 1
+				}
+			})
+
+
+
+			$(".saveAddress").click(function(){
+				var sheng ="";
+				var shi ="";
+				var qu ="";
+				if(resultVal != ""){
+					 sheng = resultVal[0].label;
+					 shi = resultVal[1].label;
+					 qu = resultVal[2].label;
+				}else{
+					 sheng = $('#sheng').val();
+					 shi = $('#shi').val();
+					 qu = $('#qu').val();
+				}
+							
+				var sh_name = $('#sh_name').val();
+				var sh_mobile = $('#sh_mobile').val();
+				var xiangxi = $('#xiangxi').val();
+				var id = $('#address_id').val();
+				$.ajax({
+					type:"POST",
+					url:"Portal/Mine/editAddressPhone",
+					data:{
+						"sh_name":sh_name,
+						"sh_mobile":sh_mobile,
+						"sheng":sheng,
+						"shi":shi,
+						"qu":qu,
+						"xiangxi":xiangxi,
+						"status":status,
+						"id":id,
+					},
+					success:function (data) {
+						if(data.code==200){
+							alert(data.msg);
+						}
+						else {
+							alert(data.msg);
+						}
+					},
+					error:function () {
+						alert("网络错误");
+					}
+				})
+			})
+
+
+
+			$(".listCit").on('click', function() {
+					citypicker(".listLocation");
+			})
+		})
+	</script>
+	</body>
+
+</html>

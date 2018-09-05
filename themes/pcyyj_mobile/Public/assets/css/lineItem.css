@@ -1,0 +1,136 @@
+.header{
+	margin-bottom:0;
+}
+.state{
+	background:rgba(255,61,0,1);
+	padding:0.48rem 0.33rem;
+}
+.state .stateImg img{
+	width: 0.45rem;
+	height: 0.48rem;
+}
+.state .stateFont{
+	font-size: 0.36rem;
+	color:#fff;
+}
+.userMes{
+	margin-top:0.16rem;
+	background:#fff;
+	padding-top:0.5rem;
+	padding-bottom: 0.43rem;
+	border-top:1px solid rgba(228,228,228,1);
+	border-bottom: 1px solid rgba(228,228,228,1);
+}
+.userMes .dwImg img{
+	width: 0.24rem;
+	height: 0.32rem;
+}
+.userMes .mes .namePhone{
+	font-size: 0.3rem;
+	color:rgba(51,51,51,1);
+}
+.userMes .mes .address{
+	font-size: 0.26rem;
+	color:rgba(136,136,136,1);
+	margin-top:0.34rem;
+}
+.shoppMes{
+	background:#fff;
+	margin-top:0.17rem;
+	border-top:1px solid rgba(228,228,228,1);
+	border-bottom: 1px solid rgba(228,228,228,1);
+}
+.shoppMes .mesHeader{
+	padding:0.26rem 0;
+	border-bottom: 1px solid rgba(228,228,228,1);
+}
+.shoppMes .mesHeader .title{
+	color:rgba(102,102,102,1);
+	font-size: 0.3rem;
+}
+.shoppMes .mesHeader .service .serviceImg img{
+	width: 0.24rem;
+	height: 0.24rem;
+}
+.shoppMes .mesHeader .service .serviceFont{
+	font-size: 0.26rem;
+	color:rgba(102,102,102,1);
+	margin-top:0.05rem;	
+}
+.shoppMes .shoppMesBody{
+	padding:0;
+	padding:0.23rem 0;
+}
+.shoppMes .shoppMesBody .shoppBodyImg img{
+	width: 1.16rem;
+	height: 1.16rem;
+	border:1px solid rgba(228,228,228,1);
+}
+.shoppMes .shoppMesBody .shoppFontMes .shoppTitle{
+	font-size: 0.3rem;
+	color:rgba(51,51,51,1);
+}
+.shoppMes .shoppMesBody .shoppFontMes .numSpecification{
+	font-size: 0.26rem;
+	color:rgba(153,153,153,1);
+	margin-top:0.29rem;
+}
+.shoppMes .shoppMesBody .shoppFontMes .numSpecification .submit button{
+	font-size: 0.22rem;
+	color:rgba(51,51,51,1);
+	width: 1.36rem;
+	height: 0.4rem;
+	border:1px solid rgba(153,153,153,1);
+	padding:0;
+	background:rgba(246,246,246,1);
+}
+.serialTime{
+	margin-top:0.16rem;
+	background:#fff;
+	border-top:1px solid rgba(228,228,228,1);
+	border-bottom: 1px solid rgba(228,228,228,1);
+	padding:0.34rem 0.32rem 0.32rem 0.31rem;
+	font-size: 0.26rem;
+	color:rgba(102,102,102,1);
+}
+.serialTime .time{
+	padding-bottom: 0.23rem;
+	border-bottom: 1px solid rgba(228,228,228,1);
+}
+.serialTime .modeOfPayment{
+	font-size: 0.26rem;
+	color:rgba(102,102,102,1);
+	padding-top:0.25rem;
+}
+.actualPayment{
+	color:rgba(51,51,51,1);
+	background:#fff;
+	margin-top:0.16rem;
+	border-top:1px solid rgba(228,228,228,1);
+	border-bottom: 1px solid rgba(228,228,228,1);
+	padding:0.34rem 0.31rem;
+	font-weight: 600;
+}
+.cancellationOfOrder{
+	width: 1.36rem;
+	height: 0.64rem;
+	font-size: 0.26rem;
+	color:rgba(153,153,153,1);
+	padding:0;
+	text-align: center;
+	line-height: 0.64rem;
+	margin-top:0.23rem;
+}
+.pay{
+	width: 1.1rem;
+	height: 0.64rem;
+	line-height: 0.64rem;
+	color:#fff;
+	background:rgba(255,61,0,1);
+	text-align: center;
+	font-size: 0.26rem;
+	padding:0;
+	border:0;
+	margin-left:0.2rem;
+	margin-top:0.23rem;
+}

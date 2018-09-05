@@ -1,0 +1,77 @@
+.kefu_warp .imgGoods{
+	width: 361px;
+	height: 428px;
+	margin-top:60px;
+}
+.kefu_warp .imgGoods img{
+	width: 361px;
+	/*height: 428px;*/
+}
+.kefu_warp .goodsMes .englishName{
+	font-size: 26px;
+	color:rgba(62,58,57,1);
+	margin-top:90px;
+}
+.kefu_warp .goodsMes .chinaName{
+	font-size: 27px;
+	margin-top:15px;
+	color:rgba(62,58,57,1);
+}
+.kefu_warp .goodsMes .intro{
+	font-size: 17px;
+	color:rgba(62,58,57,1);
+	margin-top:13px;
+	margin-bottom: 24px;
+}
+.kefu_warp .goodsMes .specification{
+	margin-bottom: 10px;
+}
+.kefu_warp .goodsMes .specification .title{
+	font-size: 18px;
+	color:rgba(62,58,57,1);
+	margin-top:8px;
+}
+.kefu_warp .goodsMes .specification .input_{
+	
+}
+.kefu_warp .goodsMes .specification .input_ .selectpicker{
+	width:206px;
+	height:40px;
+}
+.kefu_warp .goodsMes .addShopping{
+	margin-bottom: 130px;
+	margin-top:50px;
+}
+.kefu_warp .goodsMes .addShopping .addShopp{
+	background:rgba(255,60,0,1);
+	color:#fff;
+}
+
+
+
+.warp{
+	margin-bottom: 80px;
+}
+
+.warp .hr_{
+	height:10px;
+	border-top: 1px solid rgba(209,209,209,1);
+	background:#fff;
+}
+.warp .titleDetails{
+	background:rgba(89,87,87,1);
+	color:#fff;
+	font-size: 18px;
+	padding:5px 0;
+}
+.list_right .title_{
+	font-size: 16px;
+	color:rgba(62,58,57,1);
+	font-weight: 600;
+	margin-bottom: 16px;
+	margin-top: 16px;
+}
+
+.list_right .contentTitleList{
+	margin-bottom: 10px;
+}

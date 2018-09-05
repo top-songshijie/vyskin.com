@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>订单确认</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalSetting.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/lineItem.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/orderConfirmation.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<a href="javascript:history.go(-1)">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+						</a>
+					</div>
+					<div class="col-xs-8 font text-center">
+						订单确认
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="{:U('Mine/getAddressListPhone',array('location'=>'orderzhijie'))}">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 userMes">
+					<div class="col-xs-1 padding dwImg">
+						<img src="__TMPL__Public/assets/img/dwImg.png" alt="" />
+					</div>
+					<div class="col-xs-9 mes padding">
+						<div class="col-xs-12 padding namePhone">
+							<div class="col-xs-3 padding">{$my_address.sh_name}</div>
+							<div class="col-xs-9 padding">{$my_address.sh_mobile}</div>
+						</div>
+						<div class="col-xs-12 padding address">
+							{$my_address.sheng}-{$my_address.shi}-{$my_address.qu}-{$my_address.xiangxi}
+						</div>
+					</div>
+					<div class="col-xs-2 imgright">
+						<img src="__TMPL__Public/assets/img/Path2.png" class="pull-right" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		</a>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 wallScroll"></div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 shoppMes">
+					<div class="col-xs-12 shoppMesBody">
+						<div class="col-xs-2 padding shoppBodyImg">
+							<img src="{$info.smeta}" alt="" />
+						</div>
+						<div class="col-xs-9 padding shoppFontMes">
+							<div class="col-xs-12 shoppTitle padding_right">
+								<div class="col-xs-12 padding">{$info.title}</div>
+							</div>
+							<div class="col-xs-12 numSpecification padding_right">
+								<div class="col-xs-12 padding">
+									规格：{$info.attribute}
+								</div>
+							</div>
+							<div class="col-xs-12 padding priceNum">
+								<div class="col-xs-8">
+									<span style="font-size: 0.22rem;">¥</span>{$info.price}
+								</div>
+								<div class="col-xs-4 num text-right">
+									×{$info.number}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" name="goods_id" value="{$info.goods_id}" id="goods_id">
+		<input type="hidden" name="price" value="{$info.price}" id="price">
+		<input type="hidden" name="number" value="{$info.number}" id="number">
+		<input type="hidden" name="guige" value="{$info.guige}" id="guige">
+		<input type="hidden" name="attribute" value="{$info.attribute}" id="attribute">
+		<nav class="navbar navbar-default navbar-fixed-bottom" id="">
+			<div class="container padding">
+				<div class="col-xs-8 text-right">
+					合计：¥{$info.total_price}
+				</div>
+				<div class="col-xs-4 submit" id="butsub">
+					提交订单 〉
+				</div>
+			</div>
+		</nav>
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+		<script src="__TMPL__Public/assets/js/personalSetting.js"></script>
+		<script src="__TMPL__Public/assets/js/lineItem.js"></script>
+		<script src="__TMPL__Public/assets/js/orderConfirmation.js"></script>
+		<script>
+			$("#butsub").on("click",function(){
+                var goods_id = $("#goods_id").val();
+                var price = $("#price").val();
+                var number = $("#number").val();
+                var guige = $("#guige").val();
+                var attribute = $("#attribute").val();
+
+                $.ajax({
+                    type:"POST",
+                    url:"{:U('Order/addOrder')}",
+                    data:{
+                        "goods_id":goods_id,
+                        "price":price,
+                        "number":number,
+                        "guige":guige,
+                        "attribute":attribute
+                    },
+                    success:function (data) {
+                        if(data.code==200){
+                           window.location.href="http://vyskin.com/Order/sucPay?id="+data.data;
+//							 window.location.href="{:U('Order/sucPay')}";
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error:function () {
+                        alert("网络错误");
+                    }
+                })
+			})
+
+
+		</script>
+	</body>
+
+</html>

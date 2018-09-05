@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+				<link href="css/header.css" rel="stylesheet">
+		<meta name="description" content="">
+		<link href="css/base.css" rel="stylesheet">
+		<meta name="keywords" content="">
+		<style type="text/css">
+			@charset "UTF-8";
+			/**
+ * 用于网站头部
+ * @authors Jony.zhu (you@example.org)
+ * @date    2017-11-01 09:14:16
+ * @version $Id$
+ */
+			
+			.top_header {
+				border-bottom: 1px solid #CCC;
+			}
+			
+			.nav_header {
+				height: 75px;
+				text-align: center;
+				line-height: 75px;
+			}
+			
+			.nav_menu {
+				border-top: 1px solid #ccc;
+			}
+			
+			.nav_header img {
+				vertical-align: middle;
+			}
+			
+			.nav_header .media_img {
+				margin-top: 8px;
+				margin-left: 15px;
+				margin-right: 15px;
+				`
+			}
+			
+			.nav_menu .container {
+				height: 38px;
+			}
+			
+			.hot_line {
+				margin-right: 30px;
+				color: #333;
+			}
+			
+			.menu_lists,
+			.ac_list {
+				display: inline-block;
+				height: 100%
+			}
+			
+			.menu_lists:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			.menu_lists li.first {
+				height: 38px;
+				line-height: 38px;
+				color: #333;
+				padding: 0 33px;
+				float: left;
+				/*position: relative;*/
+			}
+			
+			.menu_lists .first.active,
+			.menu_lists .first:hover {
+				background: #FF4815;
+			}
+			
+			.menu_lists .first.active a,
+			.menu_lists .first:hover a {
+				color: #FFF;
+			}
+			
+			.menu_lists>li>ul.sec_menu {
+				height: 60px;
+				line-height: 60px;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: #FFF;
+				text-align: center;
+				position: absolute;
+				top: 114px;
+				left: 0;
+				right: 0;
+				width: 100%;
+				display: none;
+				z-index: 10;
+			}
+			
+			.menu_lists>li:hover>ul.sec_menu {
+				display: block;
+			}
+			
+			.sec_menu li {
+				display: inline-block;
+				line-height: 60px;
+				height: 60px;
+				margin: 0 33px;
+			}
+			
+			.sec_menu li a {
+				color: #FFF;
+			}
+			
+			.sec_menu li.second:hover>a {
+				color: #ccc;
+			}
+			
+			.ac_list li {
+				float: left;
+				padding: 0 20px;
+				line-height: 38px;
+			}
+			
+			.ac_list li:hover>a {
+				color: #FF4815;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="container_fuild top_header">
+			<div class="container nav_header">
+				<img src="images/header_icon.png" height="57px" width="57px" alt="header_icon" class="pull_left media_img">
+				<img src="images/header_logo.png" width="102px" class="">
+				<img src="images/header_ewm.png" width="47px" class="pull_right media_img">
+				<span class="pull_right hot_line">客服热线：010-6718 7845</span>
+			</div>
+			<div class="container_fuild nav_menu">
+				<div class="container">
+					<ul class="menu_lists">
+						<li class="first">
+							<a href="javascript:;">首页</a>
+							<ul class="sec_menu"></ul>
+						</li>
+						<li class="first active">
+							<a href="javascript:;">关于妍依净</a>
+						</li>
+						<li class="first">
+							<a href="javascript:;">明星产品</a>
+							<ul class="sec_menu">
+								<li class="second">
+									<a href="javascript:;">修护焕肤精华乳</a>
+								</li>
+								<li class="second">
+									<a href="javascript:;">修护焕肤精华乳</a>
+								</li>
+								<li class="second">
+									<a href="javascript:;">修护焕肤精华乳</a>
+								</li>
+								<li class="second">
+									<a href="javascript:;">修护焕肤精华乳</a>
+								</li>
+							</ul>
+						</li>
+						<li class="first">
+							<a href="javascript:;">了解敏感肌</a>
+						</li>
+						<li class="first">
+							<a href="javascript:;">新闻中心</a>
+						</li>
+						<li class="first">
+							<a href="javascript:;">联系我们</a>
+						</li>
+					</ul>
+					<ul class="ac_list pull_right">
+						<li>
+							<a href="javascript:;">会员登录</a>
+						</li>
+						<li>
+							<a href="javascript:;">购物车(0)</a>
+						</li>
+						<li>
+							<a href="javascript:;">在线客服</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+	</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>订单列表</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalSetting.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/lineDetail.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<a href="javascript:history.go(-1)">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+						</a>
+					</div>
+					<div class="col-xs-8 font text-center">
+						订单列表
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 padding classType">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#A" data-toggle="tab">
+								全部
+							</a>
+						</li>
+						<li>
+							<a href="#B" data-toggle="tab">
+								未支付
+							</a>
+						</li>
+						<li>
+							<a href="#C" data-toggle="tab">
+								已支付
+							</a>
+						</li>
+						<li>
+							<a href="#D" data-toggle="tab">
+								已完成
+							</a>
+						</li>
+						<li>
+							<a href="#E" data-toggle="tab">
+								已取消
+							</a>
+						</li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="A">
+							<!--全部一层循环-->
+							<volist name="list" id="volist">
+							<div class="col-xs-12 padding list non-payment">
+								<div class="col-xs-12 orderStatus">
+									订单状态：<span style="color:rgba(255,61,0,1);">{$volist.status}</span> <span class="pull-right">{$volist.addtime}</span>
+								</div>
+								<!--二层循环-->
+								<volist name="volist['detail']" id="vodetail">
+								<div class="col-xs-12 padding shoppList">
+									<div class="col-xs-12 shoppMes">
+										<div class="col-xs-12 shoppMesBody">
+											<div class="col-xs-2 padding shoppBodyImg">
+												<img src="__TMPL__Public/assets/img/pro_xhs_pic1.png" alt="" />
+											</div>
+											<div class="col-xs-10 padding shoppFontMes">
+												<div class="col-xs-12 shoppTitle padding_right">
+													<div class="col-xs-12 padding">
+														{$vodetail.title} <span class="pull-right"><span style="font-size: 0.22rem;">¥</span>150</span>
+													</div>
+												</div>
+												<div class="col-xs-12 numSpecification padding_right">
+													<div class="col-xs-12 padding">
+														规格：{$vodetail.attribute} <span class="pull-right" style='color:rgba(153,153,153,1);'>×{$vodetail.number}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 hr"></div>
+								</div>
+								</volist>
+								<div class="col-xs-12 shoppNumPrice">
+									<div class="col-xs-12 text-right">共{$volist.num}件商品 合计：¥{$volist.price}</div>
+								</div>
+								<div class="col-xs-12 payBtn">
+									<php>
+										if($volist['status']=="未支付"){
+									</php>
+									<a href="{:U('Order/sucPay',array('order_sn'=>$volist['order_sn']))}">
+										<button class="btn pull-right btn-default btn-lg pay">去支付</button>
+									</a>
+									<a href="{:U('Order/cencelOrder',array('order_sn'=>$volist['order_sn']))}">
+										<button class="btn pull-right btn-default btn-lg cancellationOfOrder">取消订单</button>
+									</a>
+									<php>}elseif($volist['status']=="已支付"){</php>
+									<button class="btn pull-right btn-default btn-lg cancellationOfOrder">已支付</button>
+									<php>}elseif($volist['status']=="已完成"){</php>
+									<button class="btn pull-right btn-default btn-lg cancellationOfOrder">已完成</button>
+									<php>}elseif($volist['status']=="已取消"){</php>
+									<a href="{:U('Order/delOrder',array('order_sn'=>$volist['order_sn']))}">
+										<button class="btn pull-right btn-default btn-lg cancellationOfOrder">删除</button>
+									</a>
+									<php>}</php>
+
+								</div>
+							</div>
+							</volist>
+						
+						
+						</div>
+						<div class="tab-pane fade" id="B">
+							<!--未支付-->
+							<volist name="list1" id="volist">
+							<div class="col-xs-12 padding list non-payment">
+								<div class="col-xs-12 orderStatus">
+									订单状态：<span style="color:rgba(255,61,0,1);">{$volist.status}</span> <span class="pull-right">{$volist.addtime}</span>
+								</div>
+								<!--二层循环-->
+								<volist name="volist['detail']" id="vodetail">
+								<div class="col-xs-12 padding shoppList">
+									<div class="col-xs-12 shoppMes">
+										<div class="col-xs-12 shoppMesBody">
+											<div class="col-xs-2 padding shoppBodyImg">
+												<img src="__TMPL__Public/assets/img/pro_xhs_pic1.png" alt="" />
+											</div>
+											<div class="col-xs-10 padding shoppFontMes">
+												<div class="col-xs-12 shoppTitle padding_right">
+													<div class="col-xs-12 padding">
+														{$vodetail.title} <span class="pull-right"><span style="font-size: 0.22rem;">¥</span>150</span>
+													</div>
+												</div>
+												<div class="col-xs-12 numSpecification padding_right">
+													<div class="col-xs-12 padding">
+														规格：{$vodetail.attribute} <span class="pull-right" style='color:rgba(153,153,153,1);'>×{$vodetail.number}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 hr"></div>
+								</div>
+								</volist>
+								<div class="col-xs-12 shoppNumPrice">
+									<div class="col-xs-12 text-right">共{$volist.num}件商品 合计：¥{$volist.price}</div>
+								</div>
+								<div class="col-xs-12 payBtn">
+								    <a href="{:U('Order/sucPay',array('order_sn'=>$volist['order_sn']))}">
+									<button class="btn pull-right btn-default btn-lg pay">去支付</button>
+									</a>
+									<a href="{:U('Order/cencelOrder',array('order_sn'=>$volist['order_sn']))}">
+									<button class="btn pull-right btn-default btn-lg cancellationOfOrder">取消订单</button>
+									</a>
+								</div>
+							</div>
+							</volist>
+						</div>
+						<div class="tab-pane fade" id="C">
+							<!--已支付-->
+							<volist name="list2" id="volist">
+							<div class="col-xs-12 padding list non-payment">
+								<div class="col-xs-12 orderStatus">
+									订单状态：<span style="color:rgba(255,61,0,1);">{$volist.status}</span> <span class="pull-right">{$volist.addtime}</span>
+								</div>
+								<!--二层循环-->
+								<volist name="volist['detail']" id="vodetail">
+								<div class="col-xs-12 padding shoppList">
+									<div class="col-xs-12 shoppMes">
+										<div class="col-xs-12 shoppMesBody">
+											<div class="col-xs-2 padding shoppBodyImg">
+												<img src="__TMPL__Public/assets/img/pro_xhs_pic1.png" alt="" />
+											</div>
+											<div class="col-xs-10 padding shoppFontMes">
+												<div class="col-xs-12 shoppTitle padding_right">
+													<div class="col-xs-12 padding">
+														{$vodetail.title} <span class="pull-right"><span style="font-size: 0.22rem;">¥</span>150</span>
+													</div>
+												</div>
+												<div class="col-xs-12 numSpecification padding_right">
+													<div class="col-xs-12 padding">
+														规格：{$vodetail.attribute} <span class="pull-right" style='color:rgba(153,153,153,1);'>×{$vodetail.number}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 hr"></div>
+								</div>
+								</volist>
+								<div class="col-xs-12 shoppNumPrice">
+									<div class="col-xs-12 text-right">共{$volist.num}件商品 合计：¥{$volist.price}</div>
+								</div>
+								<div class="col-xs-12 payBtn">
+<!--
+									<a href="{:U('Order/sucPay',array('order_sn'=>$volist['order_sn']))}">
+									<button class="btn pull-right btn-default btn-lg pay">去支付</button>
+									</a>
+-->
+									<button class="btn pull-right btn-default btn-lg cancellationOfOrder">已支付</button>
+								</div>
+							</div>
+							</volist>
+						</div>
+						<div class="tab-pane fade" id="D">
+							<!--已完成-->
+							<volist name="list3" id="volist">
+							<div class="col-xs-12 padding list non-payment">
+								<div class="col-xs-12 orderStatus">
+									订单状态：<span style="color:rgba(255,61,0,1);">{$volist.status}</span> <span class="pull-right">{$volist.addtime}</span>
+								</div>
+								<!--二层循环-->
+								<volist name="volist['detail']" id="vodetail">
+								<div class="col-xs-12 padding shoppList">
+									<div class="col-xs-12 shoppMes">
+										<div class="col-xs-12 shoppMesBody">
+											<div class="col-xs-2 padding shoppBodyImg">
+												<img src="__TMPL__Public/assets/img/pro_xhs_pic1.png" alt="" />
+											</div>
+											<div class="col-xs-10 padding shoppFontMes">
+												<div class="col-xs-12 shoppTitle padding_right">
+													<div class="col-xs-12 padding">
+														{$vodetail.title} <span class="pull-right"><span style="font-size: 0.22rem;">¥</span>150</span>
+													</div>
+												</div>
+												<div class="col-xs-12 numSpecification padding_right">
+													<div class="col-xs-12 padding">
+														规格：{$vodetail.attribute} <span class="pull-right" style='color:rgba(153,153,153,1);'>×{$vodetail.number}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 hr"></div>
+								</div>
+								</volist>
+								<div class="col-xs-12 shoppNumPrice">
+									<div class="col-xs-12 text-right">共{$volist.num}件商品 合计：¥{$volist.price}</div>
+								</div>
+								<div class="col-xs-12 payBtn">
+<!--
+									<a href="{:U('Order/sucPay',array('order_sn'=>$volist['order_sn']))}">
+									<button class="btn pull-right btn-default btn-lg pay">去支付</button></a>
+-->
+									<button class="btn pull-right btn-default btn-lg cancellationOfOrder">已完成</button>
+								</div>
+							</div>
+							</volist>
+						</div>
+						<div class="tab-pane fade" id="E">
+							<!--已取消-->
+							<volist name="list4" id="volist">
+							<div class="col-xs-12 padding list non-payment">
+								<div class="col-xs-12 orderStatus">
+									订单状态：<span style="color:rgba(255,61,0,1);">{$volist.status}</span> <span class="pull-right">{$volist.addtime}</span>
+								</div>
+								<!--二层循环-->
+								<volist name="volist['detail']" id="vodetail">
+								<div class="col-xs-12 padding shoppList">
+									<div class="col-xs-12 shoppMes">
+										<div class="col-xs-12 shoppMesBody">
+											<div class="col-xs-2 padding shoppBodyImg">
+												<img src="__TMPL__Public/assets/img/pro_xhs_pic1.png" alt="" />
+											</div>
+											<div class="col-xs-10 padding shoppFontMes">
+												<div class="col-xs-12 shoppTitle padding_right">
+													<div class="col-xs-12 padding">
+														{$vodetail.title} <span class="pull-right"><span style="font-size: 0.22rem;">¥</span>150</span>
+													</div>
+												</div>
+												<div class="col-xs-12 numSpecification padding_right">
+													<div class="col-xs-12 padding">
+														规格：{$vodetail.attribute} <span class="pull-right" style='color:rgba(153,153,153,1);'>×{$vodetail.number}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 hr"></div>
+								</div>
+								</volist>
+								<div class="col-xs-12 shoppNumPrice">
+									<div class="col-xs-12 text-right">共{$volist.num}件商品 合计：¥{$volist.price}</div>
+								</div>
+								<div class="col-xs-12 payBtn">
+<!--									<button class="btn pull-right btn-default btn-lg pay">去支付</button>-->
+									<a href="{:U('Order/delOrder',array('order_sn'=>$volist['order_sn']))}">
+									<button class="btn pull-right btn-default btn-lg cancellationOfOrder">删除</button>
+									</a>
+								</div>
+							</div>
+							</volist>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+		<script src="__TMPL__Public/assets/js/personalSetting.js"></script>
+		<script src="__TMPL__Public/assets/js/lineDetail.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>地址管理</title>
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/location_admin.css" />
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript">
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<div class="col-xs-2 img">
+						<a href="javascript:history.go(-1)">
+						<img src="__TMPL__Public/assets/img/3339.png" alt="" />
+						</a>
+					</div>
+					<div class="col-xs-8 font text-center">
+						地址管理
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">	
+				<volist name="myaddress" id="vo">
+				<div class="col-xs-12 location_top">
+					<div class="col-xs-12">{$vo.sh_name}<span style="margin-left:10px;">{$vo.sh_mobile}</span></div>
+					<div class="col-xs-12 location_1">{$vo.sheng}-{$vo.shi}-{$vo.qu}-{$vo.xiangxi}</div>
+					<div class='col-xs-12 location_top_2'>
+						<div class="col-xs-1 padding location_2 btn_" data-id="{$vo.id}">
+							<php>
+								if($vo['status']==0){
+									echo "<img class='col-xs-8 padding' src='__TMPL__Public/assets/img/shoppCarNo.png'/>";
+								}else{
+									echo "<img class='col-xs-8 padding' src='__TMPL__Public/assets/img/shoppCarYes.png'/>";
+								}
+							</php>
+							
+						</div>
+						<div class='col-xs-5 location_3'>默认地址</div>
+						<div class="col-xs-5 pull-right padding">
+							<div class="col-xs-2 bi padding">
+								<img class="col-xs-12 padding" src="__TMPL__Public/assets/img/11.png" alt="" />
+							</div>
+							<div class='col-xs-3 padding'>
+								<a href="{:U('Mine/editAddressPhone',array('id'=>$vo['id']))}">
+								<span style='color:rgba(136,136,136,1);display:block;'>编辑</span>
+								</a>
+							</div>
+							<div class="col-xs-2 del text-right padding">
+								<img class="col-xs-12 padding" src="__TMPL__Public/assets/img/146.png" alt="" />
+							</div>
+							<div class='col-xs-4 padding'>
+							<a href="{:U('Mine/delMyaddress',array('id'=>$vo['id']))}"  style="cursor:pointer; color: red" onclick="delcfm()">
+								<span style='margin-left:0.2rem;color:rgba(136,136,136,1);display:block;'>删除</span>
+							</a>
+							</div>
+							<script type="text/javascript">
+								function delcfm() {
+									if (!confirm("确认要删除？")) {
+										window.event.returnValue = false;
+									}
+								}
+							</script>
+						</div>
+					</div>
+				</div>
+				</volist>
+				<if condition="($location eq 1)">
+					<a href="{:U('Mine/addAddressPhone',array('id'=>$id,'xinjianbiaoji'=>1))}">
+						<div class="container padding" style="color:#000;font-size:0.36rem;line-height:1rem;text-align: center;height:100%;">新建地址购物车</div>
+					</a>
+					<elseif condition="($location eq 2)"/>
+					<a href="{:U('Mine/addAddressPhone',array('xinjianbiaoji'=>2))}">
+						<div class="container padding" style="color:#000;font-size:0.36rem;line-height:1rem;text-align: center;height:100%;">新建地址直接购买</div>
+					</a>
+					<else />
+
+				</if>
+
+			</div>
+
+		</div>
+
+		<nav class="navbar navbar-default navbar-fixed-bottom" style="background:rgba(252,63,29,1);height:0.88rem;">
+		<if condition="($location eq 1)">
+			<a href="{:U('Order/orderConfirmation',array('id'=>$id))}">
+				<div class="container padding" style="color:#fff;font-size:0.36rem;line-height:1rem;text-align: center;height:100%;">确认</div>
+			</a>
+		<elseif condition="($location eq 2)"/>
+			<a href="{:U('Order/orderConfirmationphone')}">
+				<div class="container padding" style="color:#fff;font-size:0.36rem;line-height:1rem;text-align: center;height:100%;">确认</div>
+			</a>
+		<else />
+			<a href="{:U('Mine/addAddressPhone')}">
+				<div class="container padding" style="color:#fff;font-size:0.36rem;line-height:1rem;text-align: center;height:100%;">+ 新建地址</div>
+			</a>
+		</if>
+		</nav>
+
+		<script src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/location_admin.js"></script>
+	</body>
+
+</html>

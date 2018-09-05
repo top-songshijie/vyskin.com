@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>订单确认</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/shoppCar.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/orderConfirmation.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header2">
+
+		<!-- 页面主体 -->
+		<div class="warp">
+
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-12 myShoppingD">
+					<div class="col-xs-3 col-xs-offset-4 header_">
+						<div class="col-xs-1 img padding">
+							<img src="__TMPL__Public/assets/images/ddqr_title_icon.png" alt="" />
+						</div>
+						<div class="col-xs-10 title">订单确认</div>
+					</div>
+					<div class="col-xs-3 schedule padding pull-right">
+						<img src="__TMPL__Public/assets/images/ddqr_lct.png" alt="" />
+					</div>
+				</div>
+				<div class="col-xs-12 model">
+					<div class="col-xs-12 getLocationFont padding">选择收获地址</div>
+					<div class="col-xs-12 padding listBody">
+						<volist name="user_address" id="vo">
+						<div class="col-xs-4 padding list listOk" data-id="{$vo.id}">
+							<div class="col-xs-12 contact">
+								<div class="col-xs-3 user padding">{$vo.sh_name}</div>
+								<div class="col-xs-8 phone padding">{$vo.sh_mobile}</div>
+								<div class="col-xs-12 hr"></div>
+								<div class="col-xs-12 padding location">{$vo.shi}-{$vo.qu}-{$vo.xiangxi}</div>
+								<div class="col-xs-12 padding alterDel">
+									<a href="{:U('Mine/index',array('locedit'=>1,'address_id'=>$vo['id'],'id'=>'-1'))}" style="cursor:pointer; color: red">修改</a>
+								 | 
+								<a href="{:U('Mine/delMyaddress',array('id'=>$vo['id']))}"  style="cursor:pointer; color: red" onclick="delcfm()">删除</a>
+								</div>
+							</div>
+							<script type="text/javascript">
+                                function delcfm() {
+                                    if (!confirm("确认要删除？")) {
+                                        window.event.returnValue = false;
+                                    }
+                                }
+							</script>
+						</div>
+						</volist>
+						<a href="{:U('Mine/index',array('loc'=>1,'id'=>'-1'))}">
+						<div class="col-xs-4 padding list">	
+								<div class="col-xs-2 col-xs-offset-3 padding img">
+									<img src="__TMPL__Public/assets/images/ddqr_icon12.png" alt="" />
+								</div>
+								<div class="col-xs-6 title">添加新地址</div>					
+						</div>
+						</a>
+					</div>
+					<div class="col-xs-12 getLocationFont padding">商品清单</div>
+					<div class="col-xs-12 commodityList">
+						<div class="col-xs-12 padding header">
+							<div class="col-xs-6 padding">
+								商品
+							</div>
+							<div class="col-xs-2 padding">
+								单价
+							</div>
+							<div class="col-xs-2 padding">
+								数量
+							</div>
+							<div class="col-xs-2 padding">
+								小计
+							</div>
+						</div>
+					
+						<div class="col-xs-12 bod" data-id="{$info.goods_id}">
+							<div class="col-xs-6 padding">
+								<div class="col-xs-2 padding img">
+									<img src="{$info.smeta}" alt="" />
+								</div>
+								<div class="col-xs-10 padding">
+									<div class="col-xs-12 title">{$info.title}</div>
+									<div class="col-xs-12 specification">规格：{$info.guige}{$info.attribute}</div>
+								</div>
+							</div>
+							<div class="col-xs-2 text-center price padding">
+								¥{$info.price}
+							</div>
+							<div class="col-xs-2 text-center num padding">
+								×{$info.number}
+							</div>
+							<div class="col-xs-2 text-center allPrice padding">
+								¥{$info.total_price}
+							</div>
+							<div class="col-xs-12 hr"></div>
+						</div>
+				
+					</div>
+					<div class="col-xs-12 goodsTotal padding">
+						<div class="col-xs-3 pull-right text-right padding">商品合计：<span style="color:rgba(252,63,29,1);">¥{$info.total_price}</span></div>
+					</div>
+				</div>
+				<div class="col-xs-12 submitiIndent padding">
+					<div class="col-xs-10 padding">
+						<div class="col-xs-2 pull-right padding">
+							<div class="col-xs-12 padding">应付总额：<span style="font-size:24px;color:rgba(252,63,29,1);">¥{$info.total_price}</span></div>
+						</div>
+					</div>
+					<div class="col-xs-2 padding btnSubmit"  style="cursor:pointer;">
+						提交订单
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" name="goods_id" value="{$info.goods_id}" id="goods_id">
+		<input type="hidden" name="price" value="{$info.price}" id="price">
+		<input type="hidden" name="number" value="{$info.number}" id="number">
+		<input type="hidden" name="guige" value="{$info.guige}" id="guige">
+		<input type="hidden" name="attribute" value="{$info.attribute}" id="attribute">
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2">
+	
+		<script>
+			$(".btnSubmit").on("click",function(){
+				var goods_id = $("#goods_id").val();
+                var price = $("#price").val();
+                var number = $("#number").val();
+                var guige = $("#guige").val();
+                var attribute = $("#attribute").val();
+
+                $.ajax({
+                    type:"POST",
+                    url:"{:U('Order/addOrderPc')}",
+                    data:{
+                        "goods_id":goods_id,
+                        "price":price,
+                        "number":number,
+                        "guige":guige,
+                        "attribute":attribute,
+                        "address_id":id
+                    },
+                    success:function (data) {
+                        if(data.code==200){
+//							alert(data.msg);
+                            window.location.href="http://vyskin.com/Order/sucPay?id="+data.data;
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error:function () {
+                        alert("网络错误");
+                    }
+                })
+			})
+
+
+		</script>
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/shoppCar.js"></script>
+		<script src="__TMPL__Public/assets/js/goodsDetails.js"></script>
+		<script src="__TMPL__Public/assets/js/orderConfirmation.js"></script>
+	</body>
+
+</html>

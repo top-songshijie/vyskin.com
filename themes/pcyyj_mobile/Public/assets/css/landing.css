@@ -1,0 +1,37 @@
+.logoing{
+	font-size: 0.36rem;
+	margin-top:1.65rem;
+	color:rgba(153,153,153,1);
+}
+.logoingInput{
+	margin-top:0.36rem;
+}
+input[placeholder], [placeholder], *[placeholder] {
+   color:rgba(153,153,153,1); !important;
+}
+input{
+	display:inline-block;
+}
+.logoingInput input,.logoingPassword input,.logoingNewPassword input,.logoingNewPasswordTwo input,.authCodeInput input{
+	padding:0.3rem 0.37rem;
+	border:2px solid rgba(87,87,87,1);
+	border-radius: 0;
+	width: 6.47rem;
+	height: 0.88rem;
+}
+.logoingPassword,.logoingNewPassword,.logoingNewPasswordTwo,.authCodeInput{
+	margin-top:0.56rem;
+}
+.go{
+	font-size: 0.36rem;
+	color:#fff;
+	background:rgba(252,63,29,1);
+	width: 6.47rem;
+	height: 0.88rem;
+	line-height: 0.88rem;
+}
+.afterSale{
+	font-size: 0.3rem;
+	margin-top:0.67rem;
+	color:rgba(87,87,87,1);
+}

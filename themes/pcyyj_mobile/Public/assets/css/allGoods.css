@@ -1,0 +1,13 @@
+.single_product .list{
+	
+}
+.single_product .list .img{
+	padding:0;
+	margin-top:1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(203,203,203,1);
+}
+.single_product .list .img img{
+	width: 6.75rem;
+	/*height: 3.16rem;*/
+}

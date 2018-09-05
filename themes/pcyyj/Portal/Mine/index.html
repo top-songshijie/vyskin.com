@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>个人中心</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/personalCenter.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header2" />
+
+		<!-- 页面主体 -->
+		<div class="warp">
+
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<div class="row">
+					<div class="col-xs-3 userLeft text-center">
+						<div class="col-xs-12 text-center img">
+							<img src="{:sp_get_asset_upload_path($mymessage['avatar'])}" style="width:100px;height: 100px;"/>
+						</div>
+						<div class="col-xs-12 padding userName">{$mymessage.user_nicename}</div>
+						<div class="col-xs-12 padding phone">{$mymessage.user_login}</div>
+						<div class="hr_"></div>
+						<div class="col-xs-12">
+							<ul id="myTab" class="nav nav-tabs">
+								<li class="active">
+									<a href="#A" data-toggle="tab">
+										<div class="col-xs-3 hint text-left">
+											<div class="col-xs-3 text-center img_ padding">
+												<img src="__TMPL__Public/assets/images/my_iconsmall2.png" alt="" />
+											</div>
+											<div class="col-xs-9 padding titlE">我的订单</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#B" data-toggle="tab">
+										<div class="col-xs-12 hint text-left">
+											<div class="col-xs-3 text-center img_ padding">
+												<img src="__TMPL__Public/assets/images/my_iconsmall3.png" alt="" />
+											</div>
+											<div class="col-xs-9 padding titlE">收货地址</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#C" data-toggle="tab">
+										<div class="col-xs-12 hint text-left">
+											<div class="col-xs-3 text-center img_ padding">
+												<img src="__TMPL__Public/assets/images/my_iconsmall4.png" alt="" />
+											</div>
+											<div class="col-xs-9 padding titlE">个人设置</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#D" data-toggle="tab">
+										<div class="col-xs-12 hint text-left">
+											<div class="col-xs-3 text-center img_ padding">
+												<img src="__TMPL__Public/assets/images/7.png" alt="" />
+											</div>
+											<div class="col-xs-9 padding titlE">退出登录</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xs-8 col-xs-offset-1 userRight" style="width: 70.666667%;">
+						<div class="col-xs-11 padding" style="margin-left: 4.333333%;margin-top: 55px;">
+							<div id="myTabContent" class="tab-content">
+								<div class="tab-pane fade in active" id="A">
+									<ul id="myTabTwo" class="nav nav-tabs">
+										<li class="active">
+											<a href="#AA" data-toggle="tab">
+												所有订单
+											</a>
+										</li>
+										<li>
+											<a href="#BB" data-toggle="tab">
+												未支付
+											</a>
+										</li>
+										<li>
+											<a href="#CC" data-toggle="tab">
+												已支付
+											</a>
+										</li>
+										<li>
+											<a href="#DD" data-toggle="tab">
+												已完成
+											</a>
+										</li>
+										<li>
+											<a href="#EE" data-toggle="tab">
+												已取消
+											</a>
+										</li>
+									</ul>
+									<div id="myTabContentTwo" class="tab-content">
+										<div class="tab-pane fade in active" id="AA">
+											<div class="col-xs-12 hr_"></div>
+											<!-- 循环开始 -->
+											<volist name="list" id="volist">
+											<div class="col-xs-12 indent padding">
+												<div class="col-xs-12 head ">
+													<div class="col-xs-6 time_state">
+														<div class="col-xs-3 padding" style="width: 90px;">{$volist.addtime}</div>
+														<div class="col-xs-3 padding">订单状态：</div>
+														<div class="col-xs-3 padding status">{$volist.status}</div>
+													</div>
+													<div class="col-xs-2 text-center">单价</div>
+													<div class="col-xs-2 text-center">总价</div>
+													<div class="col-xs-2 text-center">操作</div>
+												</div>
+												<div class="col-xs-12 body padding">
+													<div class="col-xs-10 padding" style="border-right:1px solid rgba(204,204,204,1);">
+														<volist name="volist['detail']" id="vodetail">
+														<!--商品列表-->
+														<div class="col-xs-8 padding">
+															<div class="col-xs-12 goodsMes">
+																<div class="col-xs-2 padding images">
+																	<img src="__TMPL__Public/assets/images/cart_list_pic.png" alt="" />
+																</div>
+																<div class="col-xs-9 title_specification">
+																	<div class="col-xs-12 padding title">{$vodetail.title}</div>
+																	<div class="col-xs-12 padding specification">规格：{$vodetail.attribute}</div>
+																</div>
+															</div>
+														</div>
+														<!--单价列表-->
+														<div class="col-xs-2  padding">
+															<div class="col-xs-12  unitPrice padding">
+																<div class="col-xs-12 text-center padding">¥{$vodetail.price}</div>
+																<div class="col-xs-12 text-center ">×{$vodetail.number}</div>
+															</div>
+														</div>
+														</volist>
+														<!--总价-->
+														<div class="col-xs-2 padding" style="height:100%;">
+															<div class="col-xs-12  totalPrices">
+																<div class="col-xs-12 text-center padding">¥{$volist.price}</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-2 padding paymentColumn">
+														<php>
+															if($volist['status']=="未支付"){
+														</php>
+														<div class="col-xs-12 padding payBTN">
+															<a href="{:U('Order/sucPay',array('order_sn'=>$volist['order_sn']))}"><button class="btn btn-default">去支付</button></a>
+														</div>
+														<div class="col-xs-12 padding outiIndent">
+															<a href="{:U('Order/cencelOrder',array('order_sn'=>$volist['order_sn']))}"><button class="btn btn-default">取消订单</button></a>
+														</div>
+														<php>}elseif($volist['status']=="已支付"){</php>
+														<div class="col-xs-12 padding payBTN">
+															<button style="background-color: #fff;color: #000">待收货</button>
+														</div>
+														<php>}elseif($volist['status']=="已完成"){</php>
+														<div class="col-xs-12 padding payBTN">
+															<button class="btn btn-default" style="background-color: #fff;color: #000">已完成</button>
+														</div>
+														<php>}elseif($volist['status']=="已取消"){</php>
+														<div class="col-xs-12 padding payBTN">
+															<button class="btn btn-default" style="background-color: #fff;color: #000">已取消</button>
+														</div>
+														<php>}</php>
+													</div>
+												</div>
+											</div>
+											</volist>
+										</div>
+										<div class="tab-pane fade" id="BB">
+											<div class="col-xs-12 hr_"></div>
+											<!-- 循环开始 -->
+											<volist name="list1" id="volist">
+												<div class="col-xs-12 indent padding">
+													<div class="col-xs-12 head ">
+														<div class="col-xs-6 time_state">
+															<div class="col-xs-3 padding" style="width: 90px;">{$volist.addtime}</div>
+															<div class="col-xs-3 padding">订单状态：</div>
+															<div class="col-xs-3 padding status">{$volist.status}</div>
+														</div>
+														<div class="col-xs-2 text-center">单价</div>
+														<div class="col-xs-2 text-center">总价</div>
+														<div class="col-xs-2 text-center">操作</div>
+													</div>
+													<div class="col-xs-12 body padding">
+														<div class="col-xs-10 padding" style="border-right:1px solid rgba(204,204,204,1);">
+															<volist name="volist['detail']" id="vodetail">
+																<!--商品列表-->
+																<div class="col-xs-8 padding">
+																	<div class="col-xs-12 goodsMes">
+																		<div class="col-xs-2 padding images">
+																			<img src="__TMPL__Public/assets/images/cart_list_pic.png" alt="" />
+																		</div>
+																		<div class="col-xs-9 title_specification">
+																			<div class="col-xs-12 padding title">{$vodetail.title}</div>
+																			<div class="col-xs-12 padding specification">规格：{$vodetail.attribute}</div>
+																		</div>
+																	</div>
+																</div>
+																<!--单价列表-->
+																<div class="col-xs-2  padding">
+																	<div class="col-xs-12  unitPrice padding">
+																		<div class="col-xs-12 text-center padding">¥{$vodetail.price}</div>
+																		<div class="col-xs-12 text-center ">×{$vodetail.number}</div>
+																	</div>
+																</div>
+															</volist>
+															<!--总价-->
+															<div class="col-xs-2 padding" style="height:100%;">
+																<div class="col-xs-12  totalPrices">
+																	<div class="col-xs-12 text-center padding">¥{$volist.price}</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-2 padding paymentColumn">
+															<div class="col-xs-12 padding payBTN">
+																<a href="{:U('Order/sucPay',array('order_sn'=>$volist['order_sn']))}"><button class="btn btn-default">去支付</button></a>
+															</div>
+															<div class="col-xs-12 padding outiIndent">
+																<a href="{:U('Order/cencelOrder',array('order_sn'=>$volist['order_sn']))}"><button class="btn btn-default">取消订单</button></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</volist>
+										</div>
+										<div class="tab-pane fade" id="CC">
+											<div class="col-xs-12 hr_"></div>
+											<!-- 循环开始 -->
+											<volist name="list2" id="volist">
+												<div class="col-xs-12 indent padding">
+													<div class="col-xs-12 head ">
+														<div class="col-xs-6 time_state">
+															<div class="col-xs-3 padding" style="width: 90px;">{$volist.addtime}</div>
+															<div class="col-xs-3 padding">订单状态：</div>
+															<div class="col-xs-3 padding status">{$volist.status}</div>
+														</div>
+														<div class="col-xs-2 text-center">单价</div>
+														<div class="col-xs-2 text-center">总价</div>
+														<div class="col-xs-2 text-center">状态</div>
+													</div>
+													<div class="col-xs-12 body padding">
+														<div class="col-xs-10 padding" style="border-right:1px solid rgba(204,204,204,1);">
+															<volist name="volist['detail']" id="vodetail">
+																<!--商品列表-->
+																<div class="col-xs-8 padding">
+																	<div class="col-xs-12 goodsMes">
+																		<div class="col-xs-2 padding images">
+																			<img src="__TMPL__Public/assets/images/cart_list_pic.png" alt="" />
+																		</div>
+																		<div class="col-xs-9 title_specification">
+																			<div class="col-xs-12 padding title">{$vodetail.title}</div>
+																			<div class="col-xs-12 padding specification">规格：{$vodetail.attribute}</div>
+																		</div>
+																	</div>
+																</div>
+																<!--单价列表-->
+																<div class="col-xs-2  padding">
+																	<div class="col-xs-12  unitPrice padding">
+																		<div class="col-xs-12 text-center padding">¥{$vodetail.price}</div>
+																		<div class="col-xs-12 text-center ">×{$vodetail.number}</div>
+																	</div>
+																</div>
+															</volist>
+															<!--总价-->
+															<div class="col-xs-2 padding" style="height:100%;">
+																<div class="col-xs-12  totalPrices">
+																	<div class="col-xs-12 text-center padding">¥{$volist.price}</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-2 padding paymentColumn">
+															<div class="col-xs-12 padding payBTN">
+																<button class="btn btn-default" style="background-color: #fff;color: #000">待收货</button>
+															</div>
+															<div class="col-xs-12 padding outiIndent">
+																<!--<button class="btn btn-default">取消订单</button>-->
+															</div>
+														</div>
+													</div>
+												</div>
+											</volist>
+										</div>
+										<div class="tab-pane fade" id="DD">
+											<div class="col-xs-12 hr_"></div>
+											<!-- 循环开始 -->
+											<volist name="list3" id="volist">
+												<div class="col-xs-12 indent padding">
+													<div class="col-xs-12 head ">
+														<div class="col-xs-6 time_state">
+															<div class="col-xs-3 padding" style="width: 90px;">{$volist.addtime}</div>
+															<div class="col-xs-3 padding">订单状态：</div>
+															<div class="col-xs-3 padding status">{$volist.status}</div>
+														</div>
+														<div class="col-xs-2 text-center">单价</div>
+														<div class="col-xs-2 text-center">总价</div>
+														<div class="col-xs-2 text-center">状态</div>
+													</div>
+													<div class="col-xs-12 body padding">
+														<div class="col-xs-10 padding" style="border-right:1px solid rgba(204,204,204,1);">
+															<volist name="volist['detail']" id="vodetail">
+																<!--商品列表-->
+																<div class="col-xs-8 padding">
+																	<div class="col-xs-12 goodsMes">
+																		<div class="col-xs-2 padding images">
+																			<img src="__TMPL__Public/assets/images/cart_list_pic.png" alt="" />
+																		</div>
+																		<div class="col-xs-9 title_specification">
+																			<div class="col-xs-12 padding title">{$vodetail.title}</div>
+																			<div class="col-xs-12 padding specification">规格：{$vodetail.attribute}</div>
+																		</div>
+																	</div>
+																</div>
+																<!--单价列表-->
+																<div class="col-xs-2  padding">
+																	<div class="col-xs-12  unitPrice padding">
+																		<div class="col-xs-12 text-center padding">¥{$vodetail.price}</div>
+																		<div class="col-xs-12 text-center ">×{$vodetail.number}</div>
+																	</div>
+																</div>
+															</volist>
+															<!--总价-->
+															<div class="col-xs-2 padding" style="height:100%;">
+																<div class="col-xs-12  totalPrices">
+																	<div class="col-xs-12 text-center padding">¥{$volist.price}</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-2 padding paymentColumn">
+															<div class="col-xs-12 padding payBTN">
+																<button class="btn btn-default" style="background-color: #fff;color: #000">已完成</button>
+															</div>
+															<div class="col-xs-12 padding outiIndent">
+																<!--<button class="btn btn-default">取消订单</button>-->
+															</div>
+														</div>
+													</div>
+												</div>
+											</volist>
+										</div>
+										<div class="tab-pane fade" id="EE">
+											<div class="col-xs-12 hr_"></div>
+											<!-- 循环开始 -->
+											<volist name="list4" id="volist">
+												<div class="col-xs-12 indent padding">
+													<div class="col-xs-12 head ">
+														<div class="col-xs-6 time_state">
+															<div class="col-xs-3 padding" style="width: 90px;">{$volist.addtime}</div>
+															<div class="col-xs-3 padding">订单状态：</div>
+															<div class="col-xs-3 padding status">{$volist.status}</div>
+														</div>
+														<div class="col-xs-2 text-center">单价</div>
+														<div class="col-xs-2 text-center">总价</div>
+														<div class="col-xs-2 text-center">操作</div>
+													</div>
+													<div class="col-xs-12 body padding">
+														<div class="col-xs-10 padding" style="border-right:1px solid rgba(204,204,204,1);">
+															<volist name="volist['detail']" id="vodetail">
+																<!--商品列表-->
+																<div class="col-xs-8 padding">
+																	<div class="col-xs-12 goodsMes">
+																		<div class="col-xs-2 padding images">
+																			<img src="__TMPL__Public/assets/images/cart_list_pic.png" alt="" />
+																		</div>
+																		<div class="col-xs-9 title_specification">
+																			<div class="col-xs-12 padding title">{$vodetail.title}</div>
+																			<div class="col-xs-12 padding specification">规格：{$vodetail.attribute}</div>
+																		</div>
+																	</div>
+																</div>
+																<!--单价列表-->
+																<div class="col-xs-2  padding">
+																	<div class="col-xs-12  unitPrice padding">
+																		<div class="col-xs-12 text-center padding">¥{$vodetail.price}</div>
+																		<div class="col-xs-12 text-center ">×{$vodetail.number}</div>
+																	</div>
+																</div>
+															</volist>
+															<!--总价-->
+															<div class="col-xs-2 padding" style="height:100%;">
+																<div class="col-xs-12  totalPrices">
+																	<div class="col-xs-12 text-center padding">¥{$volist.price}</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-2 padding paymentColumn">
+															<div class="col-xs-12 padding payBTN">
+																<a href="{:U('Order/delOrder',array('order_sn'=>$volist['order_sn']))}"><button class="btn btn-default">删除</button></a>
+															</div>
+															<div class="col-xs-12 padding outiIndent">
+																<!--<button class="btn btn-default">取消订单</button>-->
+															</div>
+														</div>
+													</div>
+												</div>
+											</volist>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="B">
+									<!--收货地址列表-->
+									<volist name="list_address" id="vo">
+									<div class="col-xs-12 padding list">
+										<div class="col-xs-12 padding head">
+											<div class="col-xs-1 padding" style="width: 12.333333%;">联系人</div>
+											<div class="col-xs-2 padding">电话</div>
+											<div class="col-xs-4 padding" style="width: 37.333333%;">地址</div>
+											<div class="col-xs-2 padding">操作</div>
+											<div class="col-xs-2 padding">默认地址</div>
+										</div>
+										<div class="col-xs-12 padding body">
+											<div class="col-xs-1 " style="width: 12.333333%;">
+												{$vo.sh_name}
+											</div>
+											<div class="col-xs-2 ">
+												{$vo.sh_mobile}
+											</div>
+											<div class="col-xs-4 " style="width: 37.333333%;">
+												{$vo.sheng}-{$vo.shi}-{$vo.qu}-{$vo.xiangxi}
+											</div>
+											<div class="col-xs-2 bjDel">
+												<a  class="edit" style="cursor:pointer; color: red" data-id="{$vo.id}">编辑</a>
+												|
+												<a href="{:U('Mine/delMyaddress',array('id'=>$vo['id']))}"  style="cursor:pointer; color: red" onclick="delcfm()">删除</a>
+											</div>
+											<script type="text/javascript">
+                                                function delcfm() {
+                                                    if (!confirm("确认要删除？")) {
+                                                        window.event.returnValue = false;
+                                                    }
+                                                }
+											</script>
+											<div class="col-xs-2 defaultLocation" onclick="defaultLocation($(this))" style="border:0;" data-id="{$vo.id}">
+												<php>
+													if($vo['status']==1){
+														echo "<img src='__TMPL__Public/assets/images/cart_icon_select.png'/>";
+													}else{
+														echo "<img src='__TMPL__Public/assets/images/cart_icon_normal.png'/>";
+													}
+												</php>
+											</div>
+										</div>
+									</div>
+									</volist>
+									<div class="col-xs-12 setLocation">
+										<button class="btn btn-default">新建地址</button>
+									</div>
+									<!--收货地址-编辑-->
+									<div class="col-xs-12 padding compile">
+										<div class="col-xs-12 list">
+											<div class="col-xs-3 phonePople">
+												联系人:
+											</div>
+											<!--购物车id，返回时的参数-->
+											<input type="hidden" value="{$id}" id="cart_id">
+											<div class="col-xs-9 phonePopleInput">
+												<input type="text" id="sh_name"/>
+												<input type="hidden" id="address_id" value="<php>
+													if(empty($address_id)){
+														echo 0;
+													}else{
+														echo $address_id;
+													}
+												</php>"/>
+											</div>
+										</div>
+										<div class="col-xs-12 list">
+											<div class="col-xs-3 phonePople">
+												联系电话:
+											</div>
+											<div class="col-xs-9 phonePopleInput">
+												<input type="text" id="sh_mobile"/>
+											</div>
+										</div>
+										<div class="col-xs-12 list">
+											<div class="col-xs-3 phonePople">
+												地址:
+											</div>
+											<div class="col-xs-9 phonePopleSelect">
+												<form class="form-inline">
+													<div id="distpicker2">
+														<div class="form-group">
+															<label class="sr-only" for="province5">Province</label>
+															<select class="form-control" id="province5">
+																<option value="" data-code="" >---- 所在省 ----</option>
+
+															</select>
+														</div>
+														<div class="form-group">
+															<label class="sr-only" for="city5">City</label>
+															<select class="form-control" id="city5">
+																<option value="" data-code="" >---- 所在市 ----</option>
+
+															</select>
+														</div>
+														<div class="form-group">
+															<label class="sr-only" for="district5">District</label>
+															<select class="form-control" id="district5">
+																<option value="" data-code="" >---- 所在区 ----</option>
+
+															</select>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+										<div class="col-xs-12 list">
+											<div class="col-xs-3 phonePople">
+												详细地址:
+											</div>
+											<div class="col-xs-9 phonePopleInput">
+												<input type="text" placeholder="" style="width:324px;" height="40px" id="xiangxi"/>
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<div class="col-xs-12">
+												<div class="col-xs-12" style="width: 100%;margin-top:76px;border-bottom: 1px dashed rgba(204,204,204,1);"></div>
+											</div>
+										</div>
+										<div class="col-xs-12 submiT">
+											<button class="btn btn-default" id="subAddress">提交</button>
+										</div>
+									</div>
+									<!--收货地址-编辑结束-->
+								</div>
+
+								<div class="tab-pane fade" id="C">
+									<form action="{:U('Mine/editMymessage')}" method="post" enctype="multipart/form-data">
+									<div class="col-xs-12 padding" style="margin-top:100px;">
+										<div class="col-xs-5 padding">
+											<div class="col-xs-4 col-xs-offset-3 text-right thisHead padding">当前头像:</div>
+											<label for="file">
+											<div class="col-xs-5 padding images" id="preview">
+												<img src="{:sp_get_asset_upload_path($mymessage['avatar'])}" onclick="imgOnclick1()" id="imghead"/>
+											</div>
+												<input type="file" onchange="previewImage1(this)" id="previewImg1" name="avatar" style="display: none;">
+											</label>
+										</div>
+										<div class="col-xs-6 padding">
+											<div class="col-xs-12 padding">
+												<div class="col-xs-3 col-xs-offset-2 text-right thisHead padding">会员昵称:</div>
+												<div class="col-xs-6 inputVIP">
+													<input type="text" placeholder="会员昵称" value="{$mymessage.user_nicename}" name="user_nicename" required/>
+												</div>
+											</div>
+											<div class="col-xs-12 padding">
+												<div class="col-xs-3 col-xs-offset-2 text-right thisHead padding">联系电话:</div>
+												<div class="col-xs-6 inputVIP">
+													<input type="text" placeholder="联系电话" value="{$mymessage.user_login}" name="user_login" required/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 hr_"></div>
+									<div class="col-xs-12 setSubmit">
+										<button type="submit" class="btn btn-default">提交</button>
+									</div>
+									</form>
+								</div>
+
+								<div class="tab-pane fade" id="D">
+									<a href="{:U('User/Logout/index')}" style="cursor:pointer;">我去意已决！</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" value="{$arr}">
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2" />
+
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/personalCenter.js"></script>
+		<script src="__TMPL__Public/assets/js/distpicker.data.min.js"></script>
+		<script src="__TMPL__Public/assets/js/distpicker.js"></script>
+		<script src="__TMPL__Public/assets/js/main.js"></script>
+		<script>
+			var getNewLocation = `{$loc}`;
+			if(getNewLocation == "1"){
+				$(".userLeft #myTab li").removeClass("active")
+				$(".userLeft #myTab li").eq(1).addClass("active")
+				$(".userRight #myTabContent #A").removeClass("active")
+				$(".userRight #myTabContent #A").removeClass("in")
+				$(".userRight #myTabContent #B").addClass("active")
+				$(".userRight #myTabContent #B").addClass("in")
+				$(".compile").show().siblings().hide()
+				$('#distpicker2').distpicker({
+					province: '北京市',
+					city: '北京市市辖区',
+					district: '东城区'
+			   });
+			}
+			var locedit = `{$locedit}`;
+			if(locedit == "1"){
+				$(".userLeft #myTab li").removeClass("active")
+				$(".userLeft #myTab li").eq(1).addClass("active")
+				$(".userRight #myTabContent #A").removeClass("active")
+				$(".userRight #myTabContent #A").removeClass("in")
+				$(".userRight #myTabContent #B").addClass("active")
+				$(".userRight #myTabContent #B").addClass("in")
+				$(".compile").show().siblings().hide()
+				$("#sh_name").val(`{$sh_name}`)
+				$("#sh_mobile").val(`{$sh_mobile}`)
+				$("#sheng").val(`{$sheng}`)
+				$("#shi").val(`{$shi}`)
+				$("#qu").val(`{$qu}`)
+				$("#xiangxi").val(`{$xiangxi}`)
+				console.log($("#province5 option"))
+				//这是我做的标记
+				$('#distpicker2').distpicker({
+					province: `{$sheng}`,
+					city: `{$shi}`,
+					district: `{$qu}`
+			   });
+
+			}
+		</script>
+		<script>
+			$('#subAddress').click(function () {
+				var sh_name = $('#sh_name').val();
+				var sh_mobile = $('#sh_mobile').val();
+				var sheng = $('#province5').val();
+				var shi = $('#city5').val();
+				var qu = $('#district5').val();
+				var xiangxi = $('#xiangxi').val();
+				var address_id =  $('#address_id').val();
+				var cart_id =  $('#cart_id').val();
+
+                $.ajax({
+                    type:"POST",
+                    url:"{:U('Mine/addMyaddress')}",
+                    data:{
+                        "sh_name":sh_name,
+                        "sh_mobile":sh_mobile,
+                        "sheng":sheng,
+                        "shi":shi,
+                        "qu":qu,
+                        "xiangxi":xiangxi,
+                        "address_id":address_id,
+                    },
+                    success:function (data) {
+                        if(data.code==200){
+
+                            if(cart_id == ""){
+								alert(data.msg);
+							}else if (cart_id == "-1"){
+                                window.location.href = "/Portal/Order/orderConfirmationpc";
+							}else{
+                                window.location.href = "/Portal/Order/orderConfirmation?id="+cart_id;
+
+							}
+							
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error:function () {
+                        alert("网络错误");
+                    }
+                })
+
+
+
+            })
+            function defaultLocation(that){
+			    var off = "<img src=' /themes/pcyyj/Public/assets/images/cart_icon_normal.png' alt='' />";
+				$(".defaultLocation").html(off);
+				var no = "<img src=' /themes/pcyyj/Public/assets/images/cart_icon_select.png' alt='' />";
+				that.html(no);
+                console.log(that);
+				var id = $(that)[0].dataset.id;
+                $.ajax({
+                    type:"POST",
+                    url:"{:U('Mine/addMraddress')}",
+                    data:{
+                        "id":id,
+                    },
+                    success:function (data) {
+                        if(data.code==200){
+//                            alert(data.msg);
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error:function () {
+                        alert("网络错误");
+                    }
+                })
+            }
+
+
+			function imgOnclick1(){
+				$('#previewImg1').click();
+			}
+            function previewImage1(file)
+            {
+                var MAXWIDTH  = 200;
+                var MAXHEIGHT = 200;
+                var div = document.getElementById('preview');
+                if (file.files && file.files[0])
+                {
+                    div.innerHTML ='<img id=imghead onclick=$("#previewImg1").click()>';
+                    var img = document.getElementById('imghead');
+                    img.onload = function(){
+                        var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                        img.width  =  rect.width;
+                        img.height =  rect.height;
+//                 img.style.marginLeft = rect.left+'px';
+//                        img.style.marginTop = rect.top+'px';
+                    }
+                    var reader = new FileReader();
+                    reader.onload = function(evt){img.src = evt.target.result;}
+                    reader.readAsDataURL(file.files[0]);
+                }
+                else //兼容IE
+                {
+                    var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                    file.select();
+                    var src = document.selection.createRange().text;
+                    div.innerHTML = '<img id=imghead>';
+                    var img = document.getElementById('imghead');
+                    img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+                    div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+0+"px;"+sFilter+src+"\"'></div>";
+                }
+            }
+
+            function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+                var param = {top:0, left:0, width:width, height:height};
+                if( width>maxWidth || height>maxHeight ){
+                    rateWidth = width / maxWidth;
+                    rateHeight = height / maxHeight;
+
+                    if( rateWidth > rateHeight ){
+                        param.width =  maxWidth;
+                        param.height = Math.round(height / rateWidth);
+                    }else{
+                        param.width = Math.round(width / rateHeight);
+                        param.height = maxHeight;
+                    }
+                }
+                param.left = Math.round((maxWidth - param.width) / 2);
+                param.top = Math.round((maxHeight - param.height) / 2);
+                return param;
+            }
+		</script>
+	</body>
+
+</html>

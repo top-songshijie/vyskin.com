@@ -1,0 +1,206 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font: 12px/1.5tahoma, arial, \5b8b\4f53;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+}
+.swiper-pagination-bullet-active{
+	background:rgb(255, 72, 21);
+}
+address,
+cite,
+dfn,
+em,
+var {
+	font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: couriernew, courier, monospace;
+}
+
+small {
+	font-size: 12px;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+a {
+	color: #000;
+	text-decoration: none !important;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+sup {
+	vertical-align: text-top;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+legend {
+	color: #000;
+}
+
+fieldset,
+img {
+	border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*li,
+span,*/
+/*div {
+	cursor: pointer;
+}*/
+
+.hide {
+	/*display: none;*/
+}
+.float{
+	float:left;
+}
+.clear{
+	clear:both;
+}
+.over{
+	overflow: hidden;
+}
+.padding{
+	padding:0 !important;
+}
+.padding_right{
+	padding-right: 0 !important;
+}
+.padding_left{
+	padding-left: 0 !important;
+}
+.margin_top{
+	margin-top: 15px !important;
+}
+body{
+	font-family: "MicrosoftYaHeiLight";
+}
+
+
+
+
+@media (min-width: 768px) {
+
+.col-sm-1-5 {
+
+width: 20%;
+
+float: left;
+
+}
+
+}
+
+@media (min-width: 992px) {
+
+.col-md-1-5 {
+
+width: 20%;
+
+float: left;
+
+}
+
+}
+
+@media (min-width: 1200px) {
+
+.col-lg-1-5 {
+
+width: 20%;
+
+float: left;
+
+}
+
+}
+
+
+
+
+.col-xs-1-5 {
+
+width: 20%;
+
+float: left;
+
+}
+
+.col-xs-1-5,.col-sm-1-5,.col-md-1-5,.col-lg-1-5 {
+
+min-height: 1px;
+
+padding-left: 15px;
+
+padding-right: 15px;
+
+position: relative;
+
+}

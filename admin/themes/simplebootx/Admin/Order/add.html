@@ -1,0 +1,223 @@
+<admintpl file="header" />
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('Order/made')}">定制购买列表</a></li>
+        <li><a href="{:U('Order/add',array('made_id'=>empty($made['made_id'])?'':$made['made_id']))}" target="_self">添加需求订单</a></li>
+    </ul>
+    <form action="{:U('Order/add_order',array('id'=>$id))}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>商品</th>
+                        <td>
+                            <ul id="goods" class="pic-list unstyled">
+                            </ul>
+                            <a class="btn btn-small" onclick="goodsadd()">添加商品</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+            <a class="btn" href="{:U('Order/made')}">返回</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+    //编辑器路径定义
+    var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        //setInterval(function(){public_lock_renewal();}, 10000);
+        $(".js-ajax-close-btn").on('click', function(e) {
+            e.preventDefault();
+            Wind.use("artDialog", function() {
+                art.dialog({
+                    id : "question",
+                    icon : "question",
+                    fixed : true,
+                    lock : true,
+                    background : "#CCCCCC",
+                    opacity : 0,
+                    content : "您确定需要关闭当前页面嘛？",
+                    ok : function() {
+                        setCookie("refersh_time", 1);
+                        window.close();
+                        return true;
+                    }
+                });
+            });
+        });
+        /////---------------------
+        Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+            //javascript
+
+            var form = $('form.js-ajax-forms');
+            //ie处理placeholder提交问题
+            if ($.browser && $.browser.msie) {
+                form.find('[placeholder]').each(function() {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                });
+            }
+            //表单验证开始
+            form.validate({
+                //是否在获取焦点时验证
+                onfocusout : false,
+                //是否在敲击键盘时验证
+                onkeyup : false,
+                //当鼠标掉级时验证
+                onclick : false,
+                //验证错误
+                showErrors : function(errorMap, errorArr) {
+                    //errorMap {'name':'错误信息'}
+                    //errorArr [{'message':'错误信息',element:({})}]
+                    try {
+                        $(errorArr[0].element).focus();
+                        art.dialog({
+                            id : 'error',
+                            icon : 'error',
+                            lock : true,
+                            fixed : true,
+                            background : "#CCCCCC",
+                            opacity : 0,
+                            content : errorArr[0].message,
+                            cancelVal : '确定',
+                            cancel : function() {
+                                $(errorArr[0].element).focus();
+                            }
+                        });
+                    } catch (err) {
+                    }
+                },
+                //验证规则
+                rules : {
+                    'post[goods_id]' : {
+                        required : 1
+                    },
+                    'post[number]' : {
+                        required : 1,
+                        number : 1
+                    },
+                    'post[attribute]' : {
+                        required : 1
+                    },
+                    'post[price]' : {
+                        required : 1,
+                        number : 1
+                    }
+                },
+                //验证未通过提示消息
+                messages : {
+                    'post[goods_id]' : {
+                        required : '请选择商品'
+                    },
+                    'post[number]' : {
+                        required : '请输入数量',
+                        number:'请输入数字'
+                    },
+                    'post[attribute]' : {
+                        required : '请选择属性'
+                    },
+                    'post[price]' : {
+                        required : '请选择价格',
+                        number:'请输入数字'
+                    }
+                },
+                //给未通过验证的元素加效果,闪烁等
+                highlight : false,
+                //是否在获取焦点时验证
+                onfocusout : false,
+                //验证通过，提交表单
+                submitHandler : function(forms) {
+                    $(forms).ajaxSubmit({
+                        url : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                        dataType : 'json',
+                        beforeSubmit : function(arr, $form, options) {
+
+                        },
+                        success : function(data, statusText, xhr, $form) {
+                            if (data.status) {
+                                setCookie("refersh_time", 1);
+                                //添加成功
+                                Wind.use("artDialog", function() {
+                                    art.dialog({
+                                        id : "succeed",
+                                        icon : "succeed",
+                                        fixed : true,
+                                        lock : true,
+                                        background : "#CCCCCC",
+                                        opacity : 0,
+                                        content : data.info,
+                                        button : [ {
+                                            name : '返回列表页',
+                                            callback : function() {
+                                                location = "{:U('Order/goods')}";
+                                                return true;
+                                            }
+                                        } ]
+                                    });
+                                });
+                            } else {
+                                artdialog_alert(data.info);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        ////-------------------------
+    });
+    function goodsadd() {
+        var allgoods;
+        $.ajax({
+            url:"{:U('Order/allgoods')}",
+            data:{
+                goods:1
+            },
+            dataType: 'json',
+            type:"POST",
+            success:function (data) {
+                if(data.state){
+                    allgoods = JSON.parse(data.data);
+                    var good = "";
+                    $(allgoods).each(function(i,n){
+                        good += "<option value='" + n.id + "'>" + n.title + "</option>";
+                    })
+                    var html='<li>' +
+                        '<select  name="goods[goods_id][]" style="width: 100px;margin-right: 10px"><option value="">选择商品</option>'+ good +'</select>' +
+                        '<input  name="goods[number][]" value="" style="width: 150px;" placeholder="商品数量" title="商品数量" type="text"> ' +
+                        '<input  name="goods[attribute][]" value="" style="width: 200px;" placeholder="商品属性" title="商品属性" type="text"> ' +
+                        '<input  name="goods[price][]" value="" style="width: 200px;" placeholder="商品价格" title="商品价格" type="text"> ' +
+                        '<a href="javascript:;" onclick="delgoods($(this))">移除</a> ' +
+                        '</li>';
+                    $('#goods').append(html);
+                    //console.log(good);
+                }else{
+                    alert(data.data);
+                }
+            }
+        })
+    }
+
+    function delgoods(obj) {
+        obj.parent().remove();
+    }
+</script>
+</body>
+</html>

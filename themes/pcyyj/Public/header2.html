@@ -1,0 +1,73 @@
+		<header class="container_fuild top_header">
+			<div class="container nav_header">
+				<img src="__TMPL__Public/assets/images/header_icon.png" height="57px" width="57px" alt="header_icon" class="pull_left media_img">
+				<img src="__TMPL__Public/assets/images/header_logo.png" width="102px" class="">
+				<img src="__TMPL__Public/assets/images/header_ewm.png" width="47px" class="pull_right media_img">
+				<span class="pull_right hot_line">客服热线：010-6718 7845</span>
+			</div>
+			<div class="container_fuild nav_menu">
+				<div class="container">
+					<ul class="menu_lists">
+						<li class="first">
+							<a href="{:U('Portal/Page/index',array('id'=>12))}">商城首页</a>
+							<!--<ul class="sec_menu"></ul>-->
+						</li>
+						<li class="first">
+							<a href="{:U('Portal/Goods/goodsList')}">所有产品</a>
+						</li>
+						<li class="first">
+							<a href="{:U('Portal/Page/index',array('id'=>6))}">常见问题</a>
+						</li>
+						<li class="first">
+							<a href="./">返回官网</a>
+						</li>
+					</ul>
+					<ul class="ac_list pull_right">
+						<li>
+							<php>
+								if($user_nicename=$_SESSION['user']['user_nicename']){
+									if(empty($user_nicename)){
+										echo "<a href='http://vyskin.com/Mine/index'>";
+										echo $_SESSION['user']['user_login'];
+										echo "</a>";
+									}else{
+										echo "<a href='http://vyskin.com/Mine/index'>";
+										echo $user_nicename;
+										echo "</a>";
+									}	 
+								}else{
+							</php>
+                    			<a href="{:U('User/Login/login')}">会员登录</a>
+							<php>}</php>
+						</li>
+						<li>
+							<php>
+		                        $userid=$_SESSION['user']['id'];
+		                        if(!empty($userid)){
+		                            $count=M('cart')->where("userid=$userid")->count();
+		                        }else{
+		                            $count=0;
+		                        }
+		                    </php>
+	                    	<a href="{:U('Mycar/index')}">购物车({$count})</a>
+						</li>
+						<li>
+							<a href="javascript:;">在线客服</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<script>
+            //        获取当前得url是否与当前得页面匹配
+            $(document).ready(function(){
+                $(".nav_menu .container ul li a").each(function(){
+                    $this = $(this);
+                    if($this[0].href==String(window.location)){
+                        $this.css("color","#fff")
+                        $this.parent().css({"background":"rgba(255,72,21,1)"});
+                    }
+                });
+            });
+		</script>

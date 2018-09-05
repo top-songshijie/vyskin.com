@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>商品</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="__TMPL__Public/assets/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/app.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/index.css" />
+    <link rel="stylesheet" href="__TMPL__Public/assets/css/allGoods.css" />
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+</head>
+
+<body>
+<!--头部-->
+<tc_include file="Public:header2" />
+
+<div class="mui-content">
+    <!--单个产品模块-->
+    <div class="product_content">
+        <div class="single_product">
+            <div class="col-xs-12 list text-center">
+                <foreach name="list" item="vo">
+                <div class="col-xs-12 img">
+                    <a href="{:U('Goods/goodsDetail',array('id'=>$vo['id']))}">
+                        <img src="{:sp_get_asset_upload_path($vo['smeta'])}" style="width: 100%;"/>
+                    </a>
+                </div>
+                </foreach>
+            </div>
+        </div>
+    </div>
+</div>
+
+<tc_include file="Public:footer2" />
+
+<script src="__TMPL__Public/assets/js/mui.min.js"></script>
+<script src="__TMPL__Public/assets/js/jquery-2.1.0.js"></script>
+<script src="__TMPL__Public/assets/js/swiper.jquery.min.js"></script>
+<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+<script src="__TMPL__Public/assets/js/allGoods.js"></script>
+<script type="text/javascript">
+    mui.init()
+    //轮播图初始化
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    //导航出现
+    document.getElementById('aslide_bar').addEventListener('tap', function() {
+        $('aside').animate({
+            left: '0'
+        });
+        $('body').css({
+            "position": 'fixed',
+            'overflow': 'hidden'
+        })
+    })
+    //
+    document.getElementById('asilde_close').addEventListener('tap', function() {
+        closeAsilde();
+    })
+    mui('body').on('tap', 'aside', function() {
+        closeAsilde();
+    })
+    mui('aside').on('tap', '.left_menu_container', function(e) {
+        e.stopPropagation()
+    })
+
+    function closeAsilde() {
+        $('aside').animate({
+            left: '-100%'
+        });
+        $('body').css({
+            "position": 'static',
+            'overflow': 'auto'
+        })
+    }
+    //折叠
+    mui('.left_menu_container').on('tap', '.drowp_down', function() {
+        if($(this).hasClass('open')) {
+            $(this).removeClass('open')
+            $(this).find('.sec_node').slideUp()
+        } else {
+            $(this).addClass('open')
+            $(this).find('.sec_node').slideDown()
+        }
+    })
+    mui('.sec_node').on('tap', 'li', function(e) {
+        e.stopPropagation();
+        mui.openWindow($(this).find('a').attr('href'));
+    })
+</script>
+</body>
+
+</html>

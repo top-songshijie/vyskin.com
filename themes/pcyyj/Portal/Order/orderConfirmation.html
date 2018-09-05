@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>订单确认</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/shoppCar.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/orderConfirmation.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header2">
+
+		<!-- 页面主体 -->
+		<div class="warp">
+
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-12 myShoppingD">
+					<div class="col-xs-3 col-xs-offset-4 header_">
+						<div class="col-xs-1 img padding">
+							<img src="__TMPL__Public/assets/images/ddqr_title_icon.png" alt="" />
+						</div>
+						<div class="col-xs-10 title">订单确认</div>
+					</div>
+					<div class="col-xs-3 schedule padding pull-right">
+						<img src="__TMPL__Public/assets/images/ddqr_lct.png" alt="" />
+					</div>
+				</div>
+				<div class="col-xs-12 model">
+					<div class="col-xs-12 getLocationFont padding">选择收获地址</div>
+					<div class="col-xs-12 padding listBody">
+						<volist name="user_address" id="vo">
+						<div class="col-xs-4 padding list listOk" data-id="{$vo.id}">
+							<div class="col-xs-12 contact">
+								<div class="col-xs-3 user padding">{$vo.sh_name}</div>
+								<div class="col-xs-8 phone padding">{$vo.sh_mobile}</div>
+								<div class="col-xs-12 hr"></div>
+								<div class="col-xs-12 padding location" style="height: 20px;overflow:hidden;">{$vo.shi}-{$vo.qu}-{$vo.xiangxi}</div>
+								<div class="col-xs-12 padding alterDel">
+									<a href="{:U('Mine/index',array('locedit'=>1,'address_id'=>$vo['id'],'id'=>$id))}" style="cursor:pointer; color: red">修改</a>
+								 | 
+								<a href="{:U('Mine/delMyaddress',array('id'=>$vo['id']))}"  style="cursor:pointer; color: red" onclick="delcfm()">删除</a>
+								</div>
+							</div>
+						</div>
+						</volist>
+						<a href="{:U('Mine/index',array('loc'=>1,'id'=>$id))}">
+						<div class="col-xs-4 padding list">	
+								<div class="col-xs-2 col-xs-offset-3 padding img">
+									<img src="__TMPL__Public/assets/images/ddqr_icon12.png" alt="" />
+								</div>
+								<div class="col-xs-6 title">添加新地址</div>					
+						</div>
+						</a>
+					</div>
+					<div class="col-xs-12 getLocationFont padding">商品清单</div>
+					<div class="col-xs-12 commodityList">
+						<div class="col-xs-12 padding header">
+							<div class="col-xs-6 padding">
+								商品
+							</div>
+							<div class="col-xs-2 padding">
+								单价
+							</div>
+							<div class="col-xs-2 padding">
+								数量
+							</div>
+							<div class="col-xs-2 padding">
+								小计
+							</div>
+						</div>
+						<volist name="list['data']" id="vo">
+						<div class="col-xs-12 bod" data-id="{$vo.id}">
+							<div class="col-xs-6 padding">
+								<div class="col-xs-2 padding img">
+									<img src="{:sp_get_asset_upload_path($vo['smeta'])}" alt="" />
+								</div>
+								<div class="col-xs-10 padding">
+									<div class="col-xs-12 title">{$vo.title}</div>
+									<div class="col-xs-12 specification">规格：<php>$guige = $vo['attribute'];echo $guige[1];</php></div>
+								</div>
+							</div>
+							<div class="col-xs-2 text-center price padding">
+								¥{$vo.price}
+							</div>
+							<div class="col-xs-2 text-center num padding">
+								×{$vo.number}
+							</div>
+							<div class="col-xs-2 text-center allPrice padding">
+								¥{$vo.small_price}
+							</div>
+							<div class="col-xs-12 hr"></div>
+						</div>
+						</volist>
+					</div>
+					<div class="col-xs-12 goodsTotal padding">
+						<div class="col-xs-3 pull-right text-right padding">商品合计：<span style="color:rgba(252,63,29,1);">¥{$list.total_price}</span></div>
+					</div>
+				</div>
+				<div class="col-xs-12 submitiIndent padding">
+					<div class="col-xs-10 padding">
+						<div class="col-xs-2 pull-right padding">
+							<div class="col-xs-12 padding">应付总额：<span style="font-size:24px;color:rgba(252,63,29,1);">¥{$list.total_price}</span></div>
+						</div>
+					</div>
+					<div class="col-xs-2 padding btnSubmit"  style="cursor:pointer;">
+						提交订单
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2">
+	
+		<script>
+			$(".btnSubmit").on("click",function(){
+                var clas = $(".commodityList .bod");
+                var money = [];
+                clas.each(function(){
+                    money.push($(this)[0].dataset.id)
+                });
+                $.ajax({
+                    type:"POST",
+                    url:"{:U('Order/addorderfromcart')}",
+                    data:{
+                        "cart_id":money,
+                        "address_id":id,
+                    },
+                    success:function (data) {
+                        if(data.code==200){
+                            window.location.href="http://vyskin.com/Order/sucPay?id="+data.data;
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error:function () {
+                        alert("网络错误");
+                    }
+                })
+			})
+
+
+		</script>
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/shoppCar.js"></script>
+		<script src="__TMPL__Public/assets/js/goodsDetails.js"></script>
+		<script src="__TMPL__Public/assets/js/orderConfirmation.js"></script>
+	</body>
+
+</html>

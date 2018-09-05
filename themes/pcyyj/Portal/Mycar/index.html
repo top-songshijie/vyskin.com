@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>购物车</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/shoppCar.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header2" />
+
+		<!-- 页面主体 -->
+		<div class="warp">
+
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-12 myShoppingD">
+					<div class="col-xs-3 col-xs-offset-4 header_">
+						<div class="col-xs-1 img padding">
+							<img src="__TMPL__Public/assets/images/cart_title_icon.png" alt="" />
+						</div>
+						<div class="col-xs-10 title">我的购物袋</div>
+					</div>
+					<div class="col-xs-3 schedule padding pull-right">
+						<img src="__TMPL__Public/assets/images/cart_lct.png" alt="" />
+					</div>
+				</div>
+				<div class="col-xs-12 model">
+					<div class="col-xs-12">
+						<label class="radio-inline all">
+							<div class="option"  onclick="allOK($(this))"></div>
+        					<input type="checkbox" name="allOk" id="allOk" value="option1" > 全选 <span style="margin-left:39px;" onclick="delClick()">删除</span>
+						</label>
+					</div>
+					<div class="hr_"></div>
+					<volist name="list['data']" id="vo">
+					<div class="col-xs-12 modelList padding_left">
+						<div class="col-xs-1 options">
+							<label class="radio-inline">
+								<div class="option" data-id="{$vo.id}" onclick="allList($(this))"></div>
+	        					<input type="checkbox" name="allOk" id="allOk" value="option1">
+    						</label>
+						</div>
+						<div class="col-xs-11 padding listFrame">
+							<div class="col-xs-12 head">
+								<div class="col-xs-5 shopp text-center">
+									商品
+								</div>
+								<div class="col-xs-2  text-center price">
+									单价
+								</div>
+								<div class="col-xs-3 text-center num">
+									数量
+								</div>
+								<div class="col-xs-2 text-center subtotal">
+									小计
+								</div>
+							</div>
+							<div class="col-xs-12 body padding">
+								<div class="col-xs-5 shopp text-center">
+									<div class="col-xs-3 padding img">
+										<img src="{:sp_get_asset_upload_path($vo['smeta'])}" alt="" />
+									</div>
+									<div class="col-xs-9 padding parameter">
+										
+										<div class="col-xs-12 text-left title">{$vo.title}</div>
+										<div class="col-xs-12 text-left specification">规格：{$vo.attribute}</div>
+									</div>
+								</div>
+								<div class="col-xs-2  text-center price">
+									<div class="col-xs-12 title">¥{$vo.price}</div>
+									<div class="col-xs-12 num">
+										×{$vo.number}
+									</div>
+								</div>
+								<div class="col-xs-3 text-center num_">
+									<ul class="pagination">
+										<li class="subtraction" data-id="{$vo.id}" onclick="subtraction($(this))">
+											<span>
+												-
+											</span>
+										</li>
+										<li>
+											<span>
+												<input type="text" value="{$vo.number}" onchange="num($(this))" />
+											</span>
+										</li>
+										<li class="addition" data-id="{$vo.id}"  onclick="addition($(this))">
+											<span>
+												+
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="col-xs-2 text-center subtotal">
+									<div class="col-xs-12 allPrice">¥{$vo.small_price}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</volist>
+					<div class="col-xs-12 aggregate">
+						<div class="col-xs-6 pull-right">
+							<div class="col-xs-2 pull-right settleAccounts" onclick="submitClick()">
+								结算
+							</div>
+							<div class="col-xs-9 pull-right padding aggregatePrice text-right">
+								已选商品<span class="num">0</span><span style="margin-right:30px;">件</span>合计:<span class="totalPrice">¥0</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer2" />
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/shoppCar.js"></script>
+		<script src="__TMPL__Public/assets/js/goodsDetails.js"></script>
+		<script type="text/javascript">
+			//删除购物车
+			function delClick(){
+				//購物車id
+			    var id = getIds();
+                id = id.join(",");
+				 $.ajax({
+                    type:"POST",
+                    url:"{:U('Mycar/delCar')}",
+                    data:{
+                        "id":id,
+                    },
+                    success:function (data) {
+                        if(data.code==200){
+//                            alert(data.msg);
+							window.location.href="/portal/Mycar/index";
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    },
+                    error:function () {
+                        alert("网络错误");
+                    }
+                })
+					
+			}
+			//提交购物车
+			function submitClick(){
+				//購物車id
+			    var id = getIds();
+                id = id.join(",");
+                window.location.href="http://vyskin.com/Order/orderConfirmation?id="+id;
+//			    console.log(id);
+			}
+			function getIds(){
+				var clas = $(".model .modelList .options .option")
+					var money = []
+					clas.each(function(){
+						if($(this).hasClass("optionActive")){
+							var that = $(this) 
+							money.push($(this)[0].dataset.id)
+						}
+					})
+					return money
+			}
+		
+		</script>
+	</body>
+
+</html>

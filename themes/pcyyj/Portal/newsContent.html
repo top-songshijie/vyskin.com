@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>新闻中心</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/init.css" />
+		<link href="__TMPL__Public/assets/css/base.css" rel="stylesheet">
+		<link href="__TMPL__Public/assets/css/header.css" rel="stylesheet">
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/footer.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="__TMPL__Public/assets/css/newsContent.css" />
+		<link rel="stylesheet" type="text/css" href="__TMPL__Public/assets/css/swiper.min.css">
+		<script type="text/javascript" src="__TMPL__Public/assets/js/jquery-3.2.1.min.js"></script>
+	</head>
+
+	<body>
+		<tc_include file="Public:header" />
+
+		<!-- 页面主体 -->
+		<div class="warp">
+
+			<!-- 产品 -->
+			<div class="container kefu_warp" style="min-width: 1200px;">
+				<!-- 客服 -->
+				<div class="kefu_fd">
+					<a href="javascript:;">
+						<img src="__TMPL__Public/assets/images/fd.png" width="62px">
+					</a>
+				</div>
+				<div class="col-xs-12 article" style="margin-top:14px;">
+					<div class="col-xs-9 padding ">
+						<php>
+							$lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",20);
+						</php>
+						<!--开始-->
+						<volist name="lists['posts']" id="vo">
+						<a href="{:leuu('article/index',array('id'=>$vo['object_id'],'cid'=>$vo['term_id']))}">
+							<div class="col-xs-12 list">
+							<div class="col-xs-1 padding" style="width: 10.333333%;">
+								<div class="col-xs-12 padding time">
+									<php>
+									echo date("Y-m",strtotime($vo['post_date']));
+									</php>
+								</div>
+								<div class="col-xs-12 padding day">
+									<php>
+										echo date("d",strtotime($vo['post_date']));
+									</php>
+								</div>
+								<div class="col-xs-12 week">
+									<php>
+										$zhou = date("w",strtotime($vo['post_date']));
+										$arr_zhou = array('1'=>'Monday','2'=>'Tuesday','3'=>'Wednesday','4'=>'Thursday','5'=>'Friday','6'=>'Saturday','0'=>'Sunday');
+										echo $arr_zhou[$zhou];
+									</php>
+								</div>
+							</div>
+							<div class="col-xs-10 padding_right" style="width: 81.333333%;">
+								<div class="col-xs-12 title padding_right">{$vo.post_title}</div>
+								<div class="col-xs-12 content padding_right">{$vo.post_excerpt}</div>
+							</div>
+							<div class="col-xs-1 padding img text-right">
+								<img src="__TMPL__Public/assets/images/news_icon.png" alt="" />
+							</div>
+						</div>
+						</a>
+						</volist>
+						<!--结束-->
+						<!--<ul>{$lists['page']}</ul>-->
+						<div class="col-xs-12 more" style="cursor:pointer;">更多+</div>
+					</div>
+					<php>
+						$pc_xwzx_imgs = sp_getslide("pc_xwzx_imgs");
+					</php>
+					<div class="col-xs-3" style="width:261px;height:310px;">
+						<div class="col-xs-12 padding" style="margin-bottom: 10px;">
+							<a href="{$pc_xwzx_imgs[0]['slide_url']}">
+							<img src="{:sp_get_asset_upload_path($pc_xwzx_imgs[0]['slide_pic'])}" width="100%" height="100%" alt="" >
+							</a>
+							<!--<img src="__TMPL__Public/assets/images/7164027.png" width="100%" height="100%" alt="" />-->
+						</div>
+						<div class="col-xs-12 padding" style="margin-bottom: 10px;">
+							<a href="{$pc_xwzx_imgs[1]['slide_url']}">
+							<img src="{:sp_get_asset_upload_path($pc_xwzx_imgs[1]['slide_pic'])}" width="100%" height="100%" alt="" >
+							</a>
+							<!--<img src="__TMPL__Public/assets/images/7164027.png" width="100%" height="100%" alt="" />-->
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 页面底部 -->
+		<tc_include file="Public:footer" />
+
+		<script type="text/javascript" src="__TMPL__Public/assets/js/swiper-3.3.1.min.js"></script>
+		<script src="__TMPL__Public/assets/js/bootstrap.min.js"></script>
+		<script src="__TMPL__Public/assets/js/newsContent.js"></script>
+	</body>
+
+</html>

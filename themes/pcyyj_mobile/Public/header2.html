@@ -1,0 +1,70 @@
+<header class="mui-bar mui-bar-nav header_top">
+	<a href="javascript:;" class="mui-pull-left" id="aslide_bar">
+		<img src="__TMPL__Public/assets/img/header_icon1.png" class="icon_header"/>
+	</a>
+
+	<span class="mui-pull-right">
+		<img src="__TMPL__Public/assets/img/header_icon.png" class="icon_header" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=3199544174&o=vyskin.com&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');">
+		<!--<img src="__TMPL__Public/assets/img/header_icon.png" class="icon_header" />-->
+	</span>
+	<img src="__TMPL__Public/assets/img/header_logo.png" class="title_img"/>
+</header>
+<aside class="menu_warp" >
+	<div class="menu_container">
+		<img src="__TMPL__Public/assets/img/home_icon_colsed.png" class="close_btn" id="asilde_close" />
+		<ul class="left_menu_container">
+			<li class="mui-text-right"><a href="{:U('Portal/Page/index',array('id'=>12))}">商城首页</a></li>
+			<li class="mui-text-right"><a href="{:U('Portal/Goods/goodsList')}">所有产品</a></li>
+			<li class="mui-text-right"><a href="{:U('Portal/Page/index',array('id'=>6))}">常见问题</a></li>
+			<li class="mui-text-right"><a href="./">返回官网</a></li>
+		</ul>
+	</div>
+</aside>
+<script>
+    window.onload = function(){
+        mui('body').on('tap','a',function(){
+            mui.openWindow(this.href);
+        })
+		//导航
+		document.getElementById('aslide_bar').addEventListener('tap',function(){
+			$('aside').animate({left:'0'});
+			$('body').css({
+				"position":'fixed',
+				'overflow':'hidden'
+			})  
+		})
+
+		mui('body').on('tap','aside',function(){
+			closeAsilde();
+		})
+		mui('aside').on('tap','.left_menu_container',function(e){
+			e.stopPropagation()
+		})
+		function closeAsilde(){
+			$('aside').animate({left:'-100%'});
+			$('body').css({
+				"position":'static',
+				'overflow':'auto'
+			})
+		}
+		//跳转  
+		mui('.left_menu_container').on('tap','li',function(e){
+			e.stopPropagation();
+			if(this.className=='mui-text-right'){
+				mui.openWindow($(this).find('a').attr('href'));
+			}    
+		})
+		//折叠
+		mui('.left_menu_container').on('tap','.drowp_down',function(){
+			if($(this).hasClass('open')){
+				$(this).removeClass('open');
+				$(this).find('.sec_node').slideUp();
+			}else{
+				$(this).siblings('.open').find('.sec_node').slideUp();
+				$(this).addClass('open').siblings().removeClass('open');
+				$(this).find('.sec_node').slideDown();
+			}
+		})
+    }
+
+</script>
